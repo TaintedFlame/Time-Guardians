@@ -1,0 +1,1023 @@
+Wavefront OBJ material file
+# Contains 76 materials
+
+newmtl Stone
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Grass_Block
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Dirt
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Cobblestone
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Wood_Planks
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Stationary_Water
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.03 0.03 0.03
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 4
+# d 0.535
+# Tr 0.535
+# Tf 0.465 0.465 0.465
+
+newmtl Stationary_Lava
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+Ke 1 1 1
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+map_Ke Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Sand
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Gravel
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Gold_Ore
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Iron_Ore
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Coal_Ore
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Wood
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Leaves
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Glass
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.03 0.03 0.03
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Lapis_Lazuli_Ore
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Dispenser
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Sandstone
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Bed
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Cobweb
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Grass
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Dandelion
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Poppy
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Brown_Mushroom
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Red_Mushroom
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Double_Stone_Slab
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Stone_Slab
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Bricks
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Bookshelf
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Moss_Stone
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Torch
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+Ke 1 1 1
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+map_Ke Lighthouse-RGBA.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Monster_Spawner
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Oak_Wood_Stairs
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Diamond_Ore
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Crafting_Table
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Wheat
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Farmland
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Furnace
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Ladder
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Rail
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Cobblestone_Stairs
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Wall_Sign
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Stone_Pressure_Plate
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Iron_Door
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Redstone_Ore
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Redstone_Torch_(active)
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+Ke 1 1 1
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+map_Ke Lighthouse-RGBA.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Stone_Button
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Snow_(layer)
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Clay
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Fence
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Glowstone
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+Ke 1 1 1
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+map_Ke Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Trapdoor
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Monster_Egg
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Stone_Bricks
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Glass_Pane
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0.03 0.03 0.03
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Vines
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Stone_Brick_Stairs
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Cauldron
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Double_Wooden_Slab
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Wooden_Slab
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Tripwire_Hook
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Spruce_Wood_Stairs
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Cobblestone_Wall
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Flower_Pot
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Weighted_Pressure_Plate_(Heavy)
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Block_of_Quartz
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Quartz_Stairs
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Iron_Trapdoor
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Hay_Bale
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Carpet
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Spruce_Door
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Acacia_Door
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGBA.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGBA.png
+map_d Lighthouse-Alpha.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Grass_Path
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Repeating_Command_Block
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Chain_Command_Block
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1
+
+newmtl Concrete
+# Ns 0
+# Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+# map_Ka Lighthouse-RGB.png
+# for G3D, to make textures look blocky:
+interpolateMode NEAREST_MAGNIFICATION_TRILINEAR_MIPMAP_MINIFICATION
+map_Kd Lighthouse-RGB.png
+# illum 2
+# d 1
+# Tr 1

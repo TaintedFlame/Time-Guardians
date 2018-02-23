@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: e2ae349f9f2afe142ad8481a3447ac4e
+timeCreated: 1509512975
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Heroic
+  fontNames:
+  - Heroic
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

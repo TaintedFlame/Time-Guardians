@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 985da00d98a34fd448d0efdeea8b5604
+timeCreated: 1509511987
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Friedrichshain
+  fontNames:
+  - Friedrichshain
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

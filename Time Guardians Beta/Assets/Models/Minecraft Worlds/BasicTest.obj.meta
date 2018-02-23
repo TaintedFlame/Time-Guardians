@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: 17e76d779c1b40c4dbacbf1c28340d5c
+timeCreated: 1510371995
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Brown_Mushroom
+    100004: Dandelion
+    100006: Dirt
+    100008: Grass
+    100010: Grass_Block
+    100012: Gravel
+    100014: Leaves
+    100016: Sand
+    100018: Sandstone
+    100020: Stationary_Water
+    100022: Stone
+    100024: Sugar_Cane
+    100026: Wood
+    400000: //RootNode
+    400002: Brown_Mushroom
+    400004: Dandelion
+    400006: Dirt
+    400008: Grass
+    400010: Grass_Block
+    400012: Gravel
+    400014: Leaves
+    400016: Sand
+    400018: Sandstone
+    400020: Stationary_Water
+    400022: Stone
+    400024: Sugar_Cane
+    400026: Wood
+    2300000: Brown_Mushroom
+    2300002: Dandelion
+    2300004: Dirt
+    2300006: Grass
+    2300008: Grass_Block
+    2300010: Gravel
+    2300012: Leaves
+    2300014: Sand
+    2300016: Sandstone
+    2300018: Stationary_Water
+    2300020: Stone
+    2300022: Sugar_Cane
+    2300024: Wood
+    3300000: Brown_Mushroom
+    3300002: Dandelion
+    3300004: Dirt
+    3300006: Grass
+    3300008: Grass_Block
+    3300010: Gravel
+    3300012: Leaves
+    3300014: Sand
+    3300016: Sandstone
+    3300018: Stationary_Water
+    3300020: Stone
+    3300022: Sugar_Cane
+    3300024: Wood
+    4300000: Brown_Mushroom
+    4300002: Dandelion
+    4300004: Dirt
+    4300006: Grass
+    4300008: Grass_Block
+    4300010: Gravel
+    4300012: Leaves
+    4300014: Sand
+    4300016: Sandstone
+    4300018: Stationary_Water
+    4300020: Stone
+    4300022: Sugar_Cane
+    4300024: Wood
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brown_Mushroom
+    second: {fileID: 2100000, guid: 1bfdc25733ae459449f0f4f8da9e78b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dandelion
+    second: {fileID: 2100000, guid: e9eee1afdd527b6408a19be4c0178c31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dirt
+    second: {fileID: 2100000, guid: 79c7e58989ca91141869709b18c1505b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grass
+    second: {fileID: 2100000, guid: e5a30c6db5f72864b846122fe51f0062, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grass_Block
+    second: {fileID: 2100000, guid: 36638b8c7b1f00143b090e56159cb4e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gravel
+    second: {fileID: 2100000, guid: 7586cf03703f47046a626fed084a0435, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves
+    second: {fileID: 2100000, guid: e201befc44c61d447b65efe7dfc427b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sand
+    second: {fileID: 2100000, guid: 4bb36282217b72049b6cd504f6b02380, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sandstone
+    second: {fileID: 2100000, guid: 3b33a0090faa32044b87b9df9b1eb09f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stationary_Water
+    second: {fileID: 2100000, guid: b3fdf68f6bd7b14438f0809143b87184, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone
+    second: {fileID: 2100000, guid: d427b54a28684d146b246cda3a98577a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sugar_Cane
+    second: {fileID: 2100000, guid: 1fbb74935f9839544b086590d0fa980f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: d0c3b4e2277bafb48a008094f33de44b, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
