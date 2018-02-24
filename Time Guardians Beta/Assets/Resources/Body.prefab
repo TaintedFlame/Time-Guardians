@@ -749,6 +749,7 @@ GameObject:
   - component: {fileID: 54511734253007030}
   - component: {fileID: 114615881625335932}
   - component: {fileID: 114553946113852806}
+  - component: {fileID: 114680609130318690}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -3216,6 +3217,19 @@ MonoBehaviour:
     i15: 176
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &114680609130318690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504808166026936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb1a2f6d589bd954ea4467ccd1379c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: 
+  identified: 
 --- !u!135 &135152569375701074
 SphereCollider:
   m_ObjectHideFlags: 1
