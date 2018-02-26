@@ -49,7 +49,7 @@ namespace Prototype.NetworkLobby
             addButtonRow.transform.SetAsLastSibling();
 
             PlayerListModified();
-        }
+        } 
 
         public void RemovePlayer(LobbyPlayer player)
         {

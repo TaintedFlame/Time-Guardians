@@ -38,6 +38,8 @@ namespace Prototype.NetworkLobby
         public Text statusInfo;
         public Text hostInfo;
 
+        public GameObject loadingScreen;
+
         //Client numPlayers from NetworkManager is always 0, so we count (throught connect/destroy in LobbyPlayer) the number
         //of players, so that even client know how many player there is.
         [HideInInspector]
@@ -383,9 +385,26 @@ namespace Prototype.NetworkLobby
                     (lobbySlots[i] as LobbyPlayer).RpcUpdateCountdown(0);
                 }
             }
-
+            
             ServerChangeScene(playScene);
         }
+
+        //Adding the Loading Screen
+        public override void ServerChangeScene(string newSceneName)
+        {
+            loadingScreen.SetActive(true);
+            base.ServerChangeScene(newSceneName);
+            
+        }
+
+        //Removing the Loading Screen
+        public override void OnClientSceneChanged(NetworkConnection conn)
+        {
+            base.OnClientSceneChanged(conn);
+            loadingScreen.SetActive(false);
+        }
+
+
 
         // ----------------- Client callbacks ------------------
 
