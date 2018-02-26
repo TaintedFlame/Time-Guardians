@@ -37,46 +37,51 @@ public class Throwable : NetworkBehaviour
 
             RaycastHit hit;
             transform.LookAt(col.transform);
-            Ray ray = new Ray(transform.position + new Vector3(0,0.5f,0), transform.forward);
+            Ray ray = new Ray(transform.position + new Vector3(0,0,0), transform.forward);
             bool result = Physics.Raycast(ray, out hit, 8);
 
             Rigidbody newRigid = null;
-            if (col.transform.root.GetComponent<Rigidbody>() != null && isServer)
+            if (result && hit.transform.root.transform == col.transform.root.transform)
             {
-                newRigid = col.transform.root.GetComponent<Rigidbody>();
-                newRigid.AddExplosionForce(5 + 2 * newRigid.mass, transform.position, 8, 0.5f + 0.25f * newRigid.mass, ForceMode.VelocityChange);
-            }
-            if (col.transform.root.GetComponent<Player>() != null && col.transform.root.GetComponent<Player>().isLocalPlayer)
-            {
-                int damage = 10;
-                if (Vector3.Distance(transform.position, hit.point) < 1.5f) { damage = 100; }
-                else if (Vector3.Distance(transform.position, hit.point) < 3f) { damage = 75; }
-                else if (Vector3.Distance(transform.position, hit.point) < 6f) { damage = 40; }
-
-                int direction = 0;
-                
-                if (result)
+                if (col.transform.root.GetComponent<Rigidbody>() != null && isServer)
                 {
-                    Vector3 toTarget = (transform.position - hit.transform.root.transform.position).normalized;
+                    newRigid = col.transform.root.GetComponent<Rigidbody>();
+                    newRigid.AddExplosionForce(5 + 2 * newRigid.mass, transform.position, 8, 0.5f + 0.25f * newRigid.mass, ForceMode.VelocityChange);
+                }
+                if (col.transform.root.GetComponent<Player>() != null && col.transform.root.GetComponent<Player>().isLocalPlayer)
+                {
+                    int damage = 10;
+                    if (Vector3.Distance(transform.position, hit.point) < 1.5f) { damage = 100; }
+                    else if (Vector3.Distance(transform.position, hit.point) < 3f) { damage = 75; }
+                    else if (Vector3.Distance(transform.position, hit.point) < 6f) { damage = 40; }
 
-                    if (Mathf.Abs(Vector3.Dot(toTarget, hit.transform.root.transform.forward)) > Mathf.Abs(Vector3.Dot(toTarget, hit.transform.root.transform.right)))
+                    int direction = 0;
+
+                    if (result)
                     {
-                        direction = 0;
-                    }
-                    else
-                    {
-                        if (Vector3.Dot(toTarget, hit.transform.root.transform.right) > 0)
+                        Vector3 toTarget = (transform.position - hit.transform.root.transform.position).normalized;
+
+                        if (Mathf.Abs(Vector3.Dot(toTarget, hit.transform.root.transform.forward)) > Mathf.Abs(Vector3.Dot(toTarget, hit.transform.root.transform.right)))
                         {
-                            direction = 1;
+                            direction = 0;
                         }
                         else
                         {
-                            direction = 2;
+                            if (Vector3.Dot(toTarget, hit.transform.root.transform.right) > 0)
+                            {
+                                direction = 1;
+                            }
+                            else
+                            {
+                                direction = 2;
+                            }
                         }
                     }
+                    Player.player.CmdSendDamage(col.transform.root.GetComponent<Player>().playerName, damage, direction, thrower);
                 }
-                Player.player.CmdSendDamage(col.transform.root.GetComponent<Player>().playerName, damage, direction, thrower);
             }
+
+            transform.rotation = rot;
         }
 
         yield return new WaitForSeconds(1);

@@ -46,6 +46,10 @@ public class PlayerCanvas : NetworkBehaviour
 
     public HurtInfo[] hurtInfos;
 
+    [Header("Scope Components")]
+
+    public GameObject scopeImage;
+
     [Header("Inventory Components")]
 
     public Text itemText;
@@ -242,10 +246,26 @@ public class PlayerCanvas : NetworkBehaviour
         }
     }
 
+    public void ScopeImage(bool value)
+    {
+        scopeImage.SetActive(value);
+    }
+
     public void SetHealth(int amount)
     {
+        // Health Text
         healthBarSlider.value = amount;
         healthText.text = amount + "%";
+        // Health Color
+        for (int i = 0; i < hurtInfos.Length; i++)
+        {
+            if (amount >= hurtInfos[i].minDamage)
+            {
+                healthBarSlider.fillRect.GetComponent<Image>().color = hurtInfos[i].color;
+                // End
+                i = hurtInfos.Length;
+            }
+        }
     }
 
     public void GameWinMenu(string roleName, string[] winners)

@@ -52,6 +52,9 @@ public class ItemInfo : MonoBehaviour
     public float scopeViewRange;
     public float scopeMaxHitRange;
     public float scopeReticuleSpacing = -1;
+    public float scopeDrag = 1;
+    public float scopeRecoil;
+    public bool scopeImage;
 
     public float hitStrength;
     public bool canPushPlayers;
