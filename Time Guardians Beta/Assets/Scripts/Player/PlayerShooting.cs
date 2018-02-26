@@ -28,6 +28,7 @@ public class PlayerShooting : NetworkBehaviour
     float scopeTransitionTime;
 
     Player player;
+    Rigidbody rigid;
     GunPositionSync gunPositionSync;
 
     public Animator holdMovement;
@@ -48,6 +49,7 @@ public class PlayerShooting : NetworkBehaviour
     void Awake()
     {
         player = GetComponent<Player>();
+        rigid = GetComponent<Rigidbody>();
         gunPositionSync = GetComponent<GunPositionSync>();
     }
         
@@ -100,7 +102,7 @@ public class PlayerShooting : NetworkBehaviour
             }
         }
 
-        // View Bodies
+        // View Players
         RaycastHit hit;
 
         Ray ray = new Ray(firePosition.position, firePosition.forward);
@@ -194,6 +196,11 @@ public class PlayerShooting : NetworkBehaviour
                 scopeTransitionTime = scopeTransitionValue;
                 pressScopeToggle = false;
 
+                if (itemInfo.scopeImage)
+                {
+                    PlayerCanvas.canvas.ScopeImage(scoped);
+                }
+
                 currentItemObject.GetComponent<Animator>().SetBool("Scope", scoped);
                 if (scoped)
                 {
@@ -215,7 +222,7 @@ public class PlayerShooting : NetworkBehaviour
             // Left-Click or Left-Clicking
             if (((Input.GetMouseButtonDown(0) && !itemInfo.automatic) || (Input.GetMouseButton(0) && itemInfo.automatic)) && !elapseTime && scopeTransitionTime == 0)
             {
-                if (itemInfo.canUseWhileSprinting || (!itemInfo.canUseWhileSprinting && !Input.GetButton("Fire3")))
+                if (itemInfo.canUseWhileSprinting || (!itemInfo.canUseWhileSprinting && (!Input.GetButton("Fire3") || (Input.GetButton("Fire3") && scoped))))
                 {
                     if (NetworkGameInfo.networkGameInfo.gameOn || (!NetworkGameInfo.networkGameInfo.gameOn && !couldHit))
                     {
@@ -307,7 +314,8 @@ public class PlayerShooting : NetworkBehaviour
             }
         }
 
-        if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+        // Set Walk animation
+        if (player.playerMovement.moveDirection != Vector3.zero && rigid.velocity.magnitude > 1)
         {
             holdMovement.SetBool("Walking", true);
         }
@@ -315,7 +323,8 @@ public class PlayerShooting : NetworkBehaviour
         {
             holdMovement.SetBool("Walking", false);
         }
-        if (Input.GetButton("Fire3") && !scoped)
+        // Set Sprint animation
+        if (Input.GetButton("Fire3") && !scoped && rigid.velocity.magnitude > 1)
         {
             if (itemInfo.hasSprintAnimation)
             {
@@ -357,6 +366,10 @@ public class PlayerShooting : NetworkBehaviour
         else if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")) // Walk Recoil
         {
             cameraScript.Recoil(itemInfo.walkRecoil);
+        }
+        else if (scoped) // Scope Recoil
+        {
+            cameraScript.Recoil(itemInfo.scopeRecoil);
         }
         else // Normal Recoil
         {
@@ -539,7 +552,8 @@ public class PlayerShooting : NetworkBehaviour
 
         if (result && hit.transform.root.transform.GetComponent<Rigidbody>() != null)
         {
-            hit.transform.root.transform.GetComponent<Rigidbody>().AddForceAtPosition(forwardPos * hitStrength, hit.point);
+            // hit.transform.root.transform.GetComponent<Rigidbody>().AddForceAtPosition(forwardPos * hitStrength, hit.point);
+            hit.transform.root.transform.GetComponent<Rigidbody>().AddForce(forwardPos * hitStrength);
         }
     }
 
@@ -580,6 +594,8 @@ public class PlayerShooting : NetworkBehaviour
                 }
                 scoped = false;
                 pressScopeToggle = false;
+
+                PlayerCanvas.canvas.ScopeImage(false);
             }
 
             // Change Item

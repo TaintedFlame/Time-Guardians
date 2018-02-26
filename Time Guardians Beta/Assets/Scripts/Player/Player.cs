@@ -34,6 +34,7 @@ public class Player : NetworkBehaviour
     public PlayerSounds playerSounds;
     public PlayerHealth playerHealth;
     public PlayerShooting playerShooting;
+    public PlayerMovement playerMovement;
 
     public Text nameText;
     public GameObject maskedObject;
@@ -262,6 +263,9 @@ public class Player : NetworkBehaviour
                 CmdToggleMasked(false);
             }
             inventory.ResetInv();
+
+            PlayerCanvas.canvas.View("", -1, false);
+            PlayerCanvas.canvas.ScopeImage(false);
         }
 
         onToggleShared.Invoke(false);
@@ -285,6 +289,11 @@ public class Player : NetworkBehaviour
             SpectatorControl.camera.SetActive(false); 
 
             CursorLocked(true);
+        }
+
+        if (isServer)
+        {
+            playerHealth.immuneTime = 100;
         }
 
         onToggleShared.Invoke(true);

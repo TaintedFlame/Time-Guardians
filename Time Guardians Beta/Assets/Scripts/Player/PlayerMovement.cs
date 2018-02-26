@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
     Rigidbody rb;
     public CapsuleCollider capsuleCollider;
@@ -39,13 +40,23 @@ public class PlayerMovement : MonoBehaviour {
 
     public Player player;
 
-    Vector3 moveDirection;
+    public float itemDragMultiplier = 1;
+
+    public Vector3 moveDirection;
     int directions;
     float y;
     float maximumMagnitude = 100;
 
+    public bool isMoving;
+
     int glideTime;
     int waitingForGrounded;
+
+    int touching;
+    bool touchingAndJumped;
+
+    public PhysicMaterial moveMaterial;
+    public PhysicMaterial stopMaterial;
 
     float stepTime;
 
@@ -55,6 +66,7 @@ public class PlayerMovement : MonoBehaviour {
     float lastDownwardVelocity;
     float lastHight;
     float hight;
+    int fallAminTime;
 
     float reticuleSpeed = 0.17f;
 
@@ -69,11 +81,11 @@ public class PlayerMovement : MonoBehaviour {
         lastDownwardVelocity = 0;
         lastHight = 0;
         hight = 0;
+        touching = 0;
     }
 
-    void FixedUpdate() {
-
-
+    void FixedUpdate()
+    {
         //Crouching
         /* if (Input.GetKey(KeyCode.LeftControl) && Grounded())
         {
@@ -114,25 +126,25 @@ public class PlayerMovement : MonoBehaviour {
         directions = 0;
 
         #region WASD
-        
-        if (Input.GetKey(KeyCode.W))
+
+        if (Input.GetKey("w"))
         {
-            moveDirection += transform.forward * sprintMultiplier * walkSpeed * crouchMultiplier[0] + new Vector3(0, rb.velocity.y, 0);
+            moveDirection += transform.forward * walkSpeed;
             directions++;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey("s"))
         {
-            moveDirection += -transform.forward * sprintMultiplier * walkSpeed * crouchMultiplier[0] + new Vector3(0, rb.velocity.y, 0);
+            moveDirection += -transform.forward * walkSpeed;
             directions++;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey("d"))
         {
-            moveDirection += transform.right * sprintMultiplier * strafeSpeed * crouchMultiplier[0] + new Vector3(0, rb.velocity.y, 0);
+            moveDirection += transform.right * strafeSpeed;
             directions++;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey("a"))
         {
-            moveDirection += -transform.right * sprintMultiplier * strafeSpeed * crouchMultiplier[0] + new Vector3(0, rb.velocity.y, 0);
+            moveDirection += -transform.right * strafeSpeed;
             directions++;
         }
         #endregion
@@ -147,13 +159,41 @@ public class PlayerMovement : MonoBehaviour {
             moveDirection /= 1.41f;
         }
 
+        // Add Multipliers
+        if (directions >= 1)
+        {
+            // Drag
+            if (player.playerShooting.itemInfo != null)
+            {
+                if (Input.GetButton("Fire3"))
+                {
+                    itemDragMultiplier = player.playerShooting.itemInfo.sprintDrag;
+                }
+                else if (player.playerShooting.scoped)
+                {
+                    itemDragMultiplier = player.playerShooting.itemInfo.scopeDrag;
+                }
+                else if (itemDragMultiplier != player.playerShooting.itemInfo.walkDrag)
+                {
+                    itemDragMultiplier = player.playerShooting.itemInfo.walkDrag;
+                }
+            }
+            else // No Item Info
+            {
+                itemDragMultiplier = 1;
+            }
+
+            // Move player (set velocity)
+            moveDirection *= sprintMultiplier * crouchMultiplier[0] / itemDragMultiplier;
+        }
+
         // Was suddenly hit
         if (player != null)
         {
-            if (player.velocities[0].magnitude - player.velocities[4].magnitude > 3)
+            if (player.velocities[0].magnitude - player.velocities[4].magnitude > 4)
             {
                 glideTime = 30;
-                waitingForGrounded = 10;
+                waitingForGrounded = 3;
             }
         }
 
@@ -163,16 +203,38 @@ public class PlayerMovement : MonoBehaviour {
             waitingForGrounded = 3;
         }
 
+        // Set TouchingAndJumped
+        touchingAndJumped = (fallAminTime > 10 && touching > 0);
+
         // Stop waiting for grounded
         if (waitingForGrounded > 0 && !holdMovement.GetBool("Falling"))
         {
             waitingForGrounded--;
         }
 
+        // Set Walk or Run
+        isMoving = (glideTime == 0 && waitingForGrounded == 0 && !touchingAndJumped);
+
         // Walk or Run
-        if (glideTime == 0 && waitingForGrounded == 0)
+        if (isMoving)
         {
-            rb.velocity = moveDirection + new Vector3(0, y, 0);
+            rb.velocity = moveDirection;
+
+            // Set correct physic material
+            if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+            {
+                if (GetComponent<Collider>().material != moveMaterial)
+                {
+                    GetComponent<Collider>().material = moveMaterial;
+                }
+            }
+            else
+            {
+                if (GetComponent<Collider>().material != stopMaterial)
+                {
+                    GetComponent<Collider>().material = stopMaterial;
+                }
+            }
         }
         else // Glide
         {
@@ -190,9 +252,10 @@ public class PlayerMovement : MonoBehaviour {
         {
             rb.velocity /= rb.velocity.magnitude / maximumMagnitude;
         }
-        
-        
-        
+
+        // Insuring Y value is untouched
+        rb.velocity = new Vector3(rb.velocity.x, y, rb.velocity.z);
+
         // Falling
 
         if (player != null)
@@ -227,15 +290,17 @@ public class PlayerMovement : MonoBehaviour {
                     Vector2 pit = new Vector2(0.95f, 1f);
 
                     player.playerSounds.PlaySound("step", pos, vol, pit, 10, true);
+
+                    stepTime = 0;
                 }
 
                 // If walking
-                if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+                if (isMoving && moveDirection != Vector3.zero)
                 {
                     stepTime += 2;
 
                     // If sprinting
-                    if (Input.GetButton("Fire3"))
+                    if (Input.GetButton("Fire3") && (!player.playerShooting.scoped || (player.playerShooting.scoped && player.playerShooting.itemInfo.canUseWhileSprinting)))
                     {
                         stepTime += Random.Range(1f, 1.5f);
 
@@ -253,7 +318,7 @@ public class PlayerMovement : MonoBehaviour {
                     }
                 }
                 // When stop walking
-                if (!Input.GetKey("w") && !Input.GetKey("a") && !Input.GetKey("s") && !Input.GetKey("d"))
+                if (moveDirection == Vector3.zero)
                 {
                     if (stepTime >= 30)
                     {
@@ -292,7 +357,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
         {
-            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime ;
+            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
 
         //Debug.Log(Input.GetAxis("Jump"));
@@ -330,10 +395,26 @@ public class PlayerMovement : MonoBehaviour {
         {
             FallDamage();
         }
+
+        // Untouching
+        if (touching > 0)
+        {
+            touching--;
+        }
     }
 
-    void FallDamage ()
+    void FallDamage()
     {
+        if (holdMovement.GetBool("Falling"))
+        {
+            fallAminTime++;
+        }
+        else
+        {
+            fallAminTime = 0;
+        }
+
+        // Fall Damage
         if (rb.velocity.y < -1)
         {
             lastDownwardVelocity = rb.velocity.y;
@@ -356,7 +437,7 @@ public class PlayerMovement : MonoBehaviour {
 
                 if (lastHight - hight > 5)
                 {
-                    damage = (int)(lastHight - hight - 5)/2 * (int)-lastDownwardVelocity/4;
+                    damage = (int)(lastHight - hight - 5) / 2 * (int)-lastDownwardVelocity / 4;
                     print("Fell and took " + damage + " damage");
                 }
 
@@ -364,7 +445,7 @@ public class PlayerMovement : MonoBehaviour {
                 {
                     GetComponent<PlayerHealth>().RequestSelfHarm(damage, 0);
                 }
-                
+
                 fallTime = 0;
             }
             lastHight = hight;
@@ -393,14 +474,14 @@ public class PlayerMovement : MonoBehaviour {
 
     private void OnDrawGizmos()
     {
-       Gizmos.DrawWireSphere(pos, radius);
+        Gizmos.DrawWireSphere(pos, radius);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Minus))
         {
-            GetComponent<Rigidbody>().AddExplosionForce(20, transform.position + new Vector3(0,0,0), 8, 3, ForceMode.VelocityChange);
+            GetComponent<Rigidbody>().AddExplosionForce(20, transform.position + new Vector3(0, 0, 0), 8, 3, ForceMode.VelocityChange);
         }
 
         // print((Mathf.Round(rb.velocity.magnitude * 100))/100);
@@ -413,6 +494,10 @@ public class PlayerMovement : MonoBehaviour {
             glideTime = 100;
         }
     }
-}
 
+    private void OnCollisionStay(Collision collision)
+    {
+        touching++;
+    }
+}
 //BTW hey Dom :)

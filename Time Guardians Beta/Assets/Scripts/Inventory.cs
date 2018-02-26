@@ -14,11 +14,11 @@ public class Inventory : NetworkBehaviour
 
     int selected;
 
-    PlayerShooting playerShooting;
-
     [SerializeField] GameObject pickUp;
     [SerializeField] GameObject dropPosition;
     [SerializeField] float dropSpeed;
+
+    Player player;
 
     [Header("Shop Components")]
 
@@ -27,7 +27,7 @@ public class Inventory : NetworkBehaviour
 
     void Start ()
     {
-        playerShooting = GetComponent<PlayerShooting>();
+        player = GetComponent<Player>();
 
         Invoke("ResetInv", 0.01f);
     }
@@ -83,7 +83,7 @@ public class Inventory : NetworkBehaviour
         PlayerCanvas.canvas.NewAmmo(items[value].clipAmmo, clipSize, items[value].totalAmmo);
         selected = value;
 
-        playerShooting.GetItem(items[value].itemName);
+        player.playerShooting.GetItem(items[value].itemName);
     }
 
     void UpdateItemSlot ()
@@ -136,14 +136,29 @@ public class Inventory : NetworkBehaviour
 
         if (Input.GetKeyDown("q") && items[selected] != null && items[selected].itemName != "empty" && items[selected].itemName != null && items[selected].itemName != "")
         {
-            for (int i = 0; i < playerShooting.firstItem.Length; i++)
+            for (int i = 0; i < player.playerShooting.firstItem.Length; i++)
             {
-                if (playerShooting.firstItem[i].GetComponent<ItemInfo>().itemName == items[selected].itemName && playerShooting.firstItem[i].GetComponent<ItemInfo>().canDrop)
+                if (player.playerShooting.firstItem[i].GetComponent<ItemInfo>().itemName == items[selected].itemName && player.playerShooting.firstItem[i].GetComponent<ItemInfo>().canDrop)
                 {
                     CmdDropItem(items[selected].itemName);
                     NewItem(selected, "empty");
                 }
             }
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            int newSelection = selected + 1;
+            if (newSelection == 5) { newSelection = 0; }
+
+            SelectItem(newSelection);
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            int newSelection = selected - 1;
+            if (newSelection == -1) { newSelection = 4; }
+
+            SelectItem(newSelection);
         }
     }
 
@@ -153,9 +168,9 @@ public class Inventory : NetworkBehaviour
         {
             if (items[i] != null && items[i].itemName != "empty" && items[i].itemName != null && items[i].itemName != "")
             {
-                for (int a = 0; a < playerShooting.firstItem.Length; a++)
+                for (int a = 0; a < player.playerShooting.firstItem.Length; a++)
                 {
-                    if (playerShooting.firstItem[a].GetComponent<ItemInfo>().itemName == items[i].itemName && playerShooting.firstItem[a].GetComponent<ItemInfo>().dropOnDeath)
+                    if (player.playerShooting.firstItem[a].GetComponent<ItemInfo>().itemName == items[i].itemName && player.playerShooting.firstItem[a].GetComponent<ItemInfo>().dropOnDeath)
                     {
                         CmdDropItem(items[i].itemName);
                         NewItem(i, "empty");

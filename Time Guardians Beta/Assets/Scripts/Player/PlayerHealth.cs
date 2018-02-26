@@ -10,6 +10,8 @@ public class PlayerHealth : NetworkBehaviour
     Player player;
     Rigidbody rigid;
 
+    public int immuneTime;
+
 
     void Awake()
     {
@@ -25,6 +27,11 @@ public class PlayerHealth : NetworkBehaviour
         if (transform.position.y < -100)
         {
             CmdInflictSelfHarm(1, 0);
+        }
+
+        if (immuneTime > 0)
+        {
+            immuneTime--;
         }
     }
 
@@ -53,22 +60,25 @@ public class PlayerHealth : NetworkBehaviour
     {
         bool died = false;
 
-        if (health <= 0)
-            return died;
-
-        health -= damage;
-        died = health <= 0;
-        if (health < 0)
+        if (immuneTime == 0)
         {
-            health = 0;
-        }
+            if (health <= 0)
+                return died;
 
-        RpcTakeDamage(died, damage, direction);
+            health -= damage;
+            died = health <= 0;
+            if (health < 0)
+            {
+                health = 0;
+            }
 
-        // Check if special event on death
-        if (died && NetworkGameInfo.networkGameInfo.gameOn)
-        {
-            player.CmdGotKilled(playerHitter);
+            RpcTakeDamage(died, damage, direction);
+
+            // Check if special event on death
+            if (died && NetworkGameInfo.networkGameInfo.gameOn)
+            {
+                player.CmdGotKilled(playerHitter);
+            }
         }
 
         return died;
