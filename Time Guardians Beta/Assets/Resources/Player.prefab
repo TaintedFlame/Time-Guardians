@@ -14242,7 +14242,8 @@ Transform:
   m_LocalRotation: {x: -0.00000033681576, y: -0.00000019178533, z: -0.4312204, w: 0.9022466}
   m_LocalPosition: {x: -0.07651463, y: -0.01522245, z: 0.034882568}
   m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.99999994}
-  m_Children: []
+  m_Children:
+  - {fileID: 4431767836455832}
   m_Father: {fileID: 4235954029532576}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15407,8 +15408,7 @@ Transform:
   m_LocalRotation: {x: -0.00000021251584, y: 0.000000056410084, z: -0.4312204, w: 0.9022466}
   m_LocalPosition: {x: -0.076514594, y: -0.015222444, z: -0.034882527}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4431767836455832}
+  m_Children: []
   m_Father: {fileID: 4494074018086726}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16128,7 +16128,7 @@ Transform:
   m_GameObject: {fileID: 1967808860440008}
   m_LocalRotation: {x: -0.66982555, y: -0.08449301, z: 0.23405153, w: 0.6995817}
   m_LocalPosition: {x: -0.29628438, y: 0.000000025704502, z: 0.000000001862645}
-  m_LocalScale: {x: 0.99999917, y: 1.0000005, z: 1.0000002}
+  m_LocalScale: {x: 1, y: 1.0000005, z: 1.0000002}
   m_Children:
   - {fileID: 4463389996318340}
   - {fileID: 4494074018086726}
@@ -18477,12 +18477,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1445568051791064}
-  m_LocalRotation: {x: 0.05341161, y: 0.22574015, z: 0.45252162, w: 0.86105335}
-  m_LocalPosition: {x: -0.11987615, y: -0.019370412, z: 0.043477904}
+  m_LocalRotation: {x: 0.72711307, y: -0.03788698, z: 0.18048647, w: 0.66128355}
+  m_LocalPosition: {x: 0.35579997, y: 0.08362873, z: 0.12256296}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4778962974571440}
-  m_Father: {fileID: 4173843411649496}
+  m_Father: {fileID: 4075652161668872}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4432789454338952
@@ -30994,6 +30994,10 @@ MonoBehaviour:
     soundType: weaponFire
     audioClips:
     - {fileID: 8300000, guid: b8069bc15915b86489a96436040dc216, type: 3}
+  - soundName: l96Action
+    soundType: weaponAction
+    audioClips:
+    - {fileID: 8300000, guid: 3507e7c82bdb5eb4d9e37d5ae05f0299, type: 3}
   soundTypes:
   - soundType: weaponFire
     priority: 128
@@ -31164,7 +31168,7 @@ MonoBehaviour:
   canDrop: 1
   dropOnDeath: 1
   delay: 0
-  cooldown: 0.3
+  cooldown: 0.4
   automatic: 1
   canUseWhileSprinting: 0
   hasSprintAnimation: 0
@@ -31184,7 +31188,7 @@ MonoBehaviour:
   maxclipSize: 5
   maxAmmo: 20
   canScope: 1
-  scopeZoomValue: 20
+  scopeZoomValue: 10
   scopeViewRange: 499
   scopeMaxHitRange: 499
   scopeReticuleSpacing: -1

@@ -32,3 +32,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.meta
+*.meta
+Time Guardians Beta/Assets/Extras/Cinemachine/Timeline/LegacyTimelineAPI.unitypackage.meta

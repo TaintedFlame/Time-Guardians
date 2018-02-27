@@ -52,6 +52,8 @@ public class PlayerCanvas : NetworkBehaviour
 
     [Header("Inventory Components")]
 
+    public GameObject inventoryObject;
+
     public Text itemText;
     public Image[] slotBoxes;
     public Image[] slotIcons;
@@ -249,6 +251,7 @@ public class PlayerCanvas : NetworkBehaviour
     public void ScopeImage(bool value)
     {
         scopeImage.SetActive(value);
+        inventoryObject.SetActive(!value);
     }
 
     public void SetHealth(int amount)
