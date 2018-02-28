@@ -54,6 +54,7 @@ public class ItemInfo : MonoBehaviour
     public float scopeReticuleSpacing = -1;
     public float scopeDrag = 1;
     public float scopeRecoil;
+    public float scopeWalkRecoil;
     public bool scopeImage;
 
     public float hitStrength;

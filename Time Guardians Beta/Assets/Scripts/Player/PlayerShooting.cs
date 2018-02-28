@@ -366,7 +366,14 @@ public class PlayerShooting : NetworkBehaviour
         }
         else if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")) // Walk Recoil
         {
-            cameraScript.Recoil(itemInfo.walkRecoil);
+            if (!scoped) // Walk Recoil
+            {
+                cameraScript.Recoil(itemInfo.walkRecoil);
+            }
+            else // Walk-Scope Recoil
+            {
+                cameraScript.Recoil(itemInfo.scopeWalkRecoil);
+            }
         }
         else if (scoped) // Scope Recoil
         {
@@ -553,8 +560,10 @@ public class PlayerShooting : NetworkBehaviour
 
         if (result && hit.transform.root.transform.GetComponent<Rigidbody>() != null)
         {
-            // hit.transform.root.transform.GetComponent<Rigidbody>().AddForceAtPosition(forwardPos * hitStrength, hit.point);
-            hit.transform.root.transform.GetComponent<Rigidbody>().AddForce(forwardPos * hitStrength + new Vector3(0,1f,0));
+            Rigidbody hitRig = hit.transform.root.transform.GetComponent<Rigidbody>();
+            float y = hitRig.velocity.y;
+            hitRig.AddForceAtPosition(forwardPos * hitStrength * 50, hit.point);
+            hitRig.velocity = new Vector3(hitRig.velocity.x, y + (2f * hitStrength), hitRig.velocity.z);
         }
     }
 

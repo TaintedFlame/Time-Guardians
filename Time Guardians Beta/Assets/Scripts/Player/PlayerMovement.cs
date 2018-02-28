@@ -223,16 +223,16 @@ public class PlayerMovement : MonoBehaviour
             // Set correct physic material
             if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
             {
-                if (GetComponent<Collider>().material != moveMaterial)
+                if (GetComponent<CapsuleCollider>().material != moveMaterial)
                 {
-                    GetComponent<Collider>().material = moveMaterial;
+                    GetComponent<CapsuleCollider>().material = moveMaterial;
                 }
             }
             else
             {
-                if (GetComponent<Collider>().material != stopMaterial)
+                if (GetComponent<CapsuleCollider>().material != stopMaterial)
                 {
-                    GetComponent<Collider>().material = stopMaterial;
+                    GetComponent<CapsuleCollider>().material = stopMaterial;
                 }
             }
         }

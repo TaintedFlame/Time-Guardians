@@ -31193,12 +31193,13 @@ MonoBehaviour:
   scopeMaxHitRange: 499
   scopeReticuleSpacing: -1
   scopeDrag: 3
-  scopeRecoil: 0.2
+  scopeRecoil: 0.5
+  scopeWalkRecoil: 1
   scopeImage: 1
-  hitStrength: 800
+  hitStrength: 5
   canPushPlayers: 1
   hasAction: 1
-  actionTime: 0.6
+  actionTime: 0.9
   weight: 0
   speed: 0
   shopType: 
@@ -31280,8 +31281,9 @@ MonoBehaviour:
   scopeReticuleSpacing: -1
   scopeDrag: 1
   scopeRecoil: 0
+  scopeWalkRecoil: 0
   scopeImage: 0
-  hitStrength: 0
+  hitStrength: 3
   canPushPlayers: 0
   hasAction: 0
   actionTime: 0
@@ -31355,8 +31357,9 @@ MonoBehaviour:
   scopeReticuleSpacing: -1
   scopeDrag: 1.5
   scopeRecoil: 0.5
+  scopeWalkRecoil: 1
   scopeImage: 0
-  hitStrength: 75
+  hitStrength: 2
   canPushPlayers: 0
   hasAction: 0
   actionTime: 0
@@ -31409,8 +31412,9 @@ MonoBehaviour:
   scopeReticuleSpacing: 40
   scopeDrag: 1.5
   scopeRecoil: 2
+  scopeWalkRecoil: 3
   scopeImage: 0
-  hitStrength: 400
+  hitStrength: 5
   canPushPlayers: 1
   hasAction: 1
   actionTime: 0.6
@@ -31511,8 +31515,9 @@ MonoBehaviour:
   scopeReticuleSpacing: -1
   scopeDrag: 1.2
   scopeRecoil: 0.5
+  scopeWalkRecoil: 1
   scopeImage: 0
-  hitStrength: 75
+  hitStrength: 2
   canPushPlayers: 0
   hasAction: 0
   actionTime: 0
@@ -31565,6 +31570,7 @@ MonoBehaviour:
   scopeReticuleSpacing: -1
   scopeDrag: 1
   scopeRecoil: 0
+  scopeWalkRecoil: 0
   scopeImage: 0
   hitStrength: 0
   canPushPlayers: 0
@@ -31807,8 +31813,9 @@ MonoBehaviour:
   scopeReticuleSpacing: -1
   scopeDrag: 1
   scopeRecoil: 0
+  scopeWalkRecoil: 0
   scopeImage: 0
-  hitStrength: 50
+  hitStrength: 0.5
   canPushPlayers: 1
   hasAction: 0
   actionTime: 0
@@ -32183,8 +32190,9 @@ MonoBehaviour:
   scopeReticuleSpacing: 12
   scopeDrag: 1.2
   scopeRecoil: 4
+  scopeWalkRecoil: 6
   scopeImage: 0
-  hitStrength: 200
+  hitStrength: 2
   canPushPlayers: 0
   hasAction: 0
   actionTime: 0
