@@ -199,6 +199,7 @@ public class PlayerShooting : NetworkBehaviour
                 if (itemInfo.scopeImage)
                 {
                     PlayerCanvas.canvas.ScopeImage(scoped);
+                    cameras[1].gameObject.SetActive(!scoped);
                 }
 
                 currentItemObject.GetComponent<Animator>().SetBool("Scope", scoped);
@@ -553,7 +554,7 @@ public class PlayerShooting : NetworkBehaviour
         if (result && hit.transform.root.transform.GetComponent<Rigidbody>() != null)
         {
             // hit.transform.root.transform.GetComponent<Rigidbody>().AddForceAtPosition(forwardPos * hitStrength, hit.point);
-            hit.transform.root.transform.GetComponent<Rigidbody>().AddForce(forwardPos * hitStrength);
+            hit.transform.root.transform.GetComponent<Rigidbody>().AddForce(forwardPos * hitStrength + new Vector3(0,1f,0));
         }
     }
 
@@ -596,6 +597,7 @@ public class PlayerShooting : NetworkBehaviour
                 pressScopeToggle = false;
 
                 PlayerCanvas.canvas.ScopeImage(false);
+                cameras[1].gameObject.SetActive(true);
             }
 
             // Change Item
