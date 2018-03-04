@@ -43,8 +43,11 @@ public class Player : NetworkBehaviour
 
     public Vector3[] velocities = new Vector3[20];
 
+    
+
     void Start()
     {
+
         anim = GetComponent<NetworkAnimator>();
         rigid = GetComponent<Rigidbody>();
         inventory = GetComponent<Inventory>();
@@ -134,11 +137,13 @@ public class Player : NetworkBehaviour
                 if (clientRole == "traitor")
                 {
                     inventory.NewItem(4, "traitorShop");
+                    inventory.crystals = 5;
                 }
             }
         }
     }
 
+    
     
 
     void Velocities ()

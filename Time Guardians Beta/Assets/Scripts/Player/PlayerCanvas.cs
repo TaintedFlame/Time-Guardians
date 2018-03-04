@@ -81,11 +81,17 @@ public class PlayerCanvas : NetworkBehaviour
     public List<TabInfo> tabItemsInfo = new List<TabInfo>();
 
     [Header("Shop")]
+    List<GameObject> icons = new List<GameObject>();
 
     public string shopType;
     public GameObject shopObject;
     public GameObject shopPanel;
     public Image[] coloredShopImages;
+    public GameObject shopIcon;
+    public GameObject IconHolder;
+
+    public enum ShopSortingTab { All, Weapons, Support, Misc};
+    public ShopSortingTab shopSortingTab;
 
     public ShopContents shop;
 
@@ -122,6 +128,7 @@ public class PlayerCanvas : NetworkBehaviour
 
     void Update()
     {
+        
         fpsText.text = "FPS: " + (int)(1.0 / Time.deltaTime);
 
         if (Input.GetMouseButtonDown(1) || (Input.GetKeyDown("e") && elapsedBodyTime <= 0))
@@ -438,6 +445,8 @@ public class PlayerCanvas : NetworkBehaviour
                 else if (roleInfo.roleWinType == "traitor" && viewedRoleInfo.roleWinType == "traitor")
                 {
                     viewImage.sprite = viewedRoleInfo.imageGlow;
+                    //ShopController.selectedShop = traitorShop;
+                    
                 }
                 else if (roleInfo.roleWinType != "innocent" && viewedRoleInfo.name == "jester")
                 {
@@ -479,6 +488,7 @@ public class PlayerCanvas : NetworkBehaviour
             }
 
             slotImages[slot].gameObject.SetActive(true);
+            if (slot < 5)
             slotIcons[slot].gameObject.SetActive(false);
         }
     }
@@ -494,6 +504,7 @@ public class PlayerCanvas : NetworkBehaviour
             slotImages[i].color = new Color(1, 1, 1, 0.5f);
         }
         slotBoxes[slotValue].color = new Color(1, 1, 1, 1f);
+        if (slotValue < 5)
         slotIcons[slotValue].color = new Color(0, 0, 0, 0.78f);
         slotImages[slotValue].color = new Color(1, 1, 1, 1f);
     }
@@ -705,8 +716,31 @@ public class PlayerCanvas : NetworkBehaviour
     public void CloseShop()
     {
         Player.player.GetComponent<PlayerShooting>().Shop();
+        foreach (GameObject icon in icons)
+        {
+            Destroy(icon);
+            icons.Remove(icon);
+        }
     }
+    public void DrawMenu()
+    {
+        
 
+        //Spawn in all Icons
+        if (shopSortingTab == ShopSortingTab.All)
+        {
+            print(ShopController.selectedShop.shopName + " player canvas");
+            for (int i = 0; i < ShopController.selectedShop.allItems.Length; i++)
+            {
+                Debug.Log("Drawing Icon");
+                GameObject shopObj = Instantiate(shopIcon, IconHolder.transform);
+                shopObj.GetComponent<ShopObject>().shopObject = ShopController.selectedShop.allItems[i];
+                shopObj.GetComponent<Button>().onClick.AddListener(() => { shopObject.GetComponent<ShopController>().OnSelected(i); });
+                icons.Add(shopObj);
+                //                                                                                          <----------- Keep working here!
+            }
+        }
+    }
     public void ToggleShop(string value)
     {
         // Run if is not new info

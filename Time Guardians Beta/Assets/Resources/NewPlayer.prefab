@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 136630628424377750}
   - component: {fileID: 54980067515182892}
   - component: {fileID: 114671827107402914}
+  - component: {fileID: 114169261870369392}
+  - component: {fileID: 114516072567542280}
   m_Layer: 0
   m_Name: NewPlayer
   m_TagString: Untagged
@@ -135,6 +137,38 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1581506109022590}
   m_Enabled: 1
+--- !u!114 &114169261870369392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1439864256191350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 42
+    i1: 134
+    i2: 11
+    i3: 46
+    i4: 152
+    i5: 43
+    i6: 206
+    i7: 100
+    i8: 42
+    i9: 21
+    i10: 6
+    i11: 169
+    i12: 136
+    i13: 48
+    i14: 152
+    i15: 93
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114424198668793682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,6 +199,64 @@ MonoBehaviour:
   targetDirection: {x: 0, y: 0}
   targetCharacterDirection: {x: 0, y: 0}
   characterBody: {fileID: 1439864256191350}
+--- !u!114 &114516072567542280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1439864256191350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e21463fa9bb76409576c0c45fdca5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: 
+  playerColor: {r: 0, g: 0, b: 0, a: 0}
+  onToggleShared:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToggleEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  onToggleLocal:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToggleEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  onToggleRemote:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToggleEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  alive: 1
+  clientRole: 
+  masked: 0
+  viewTrasform: {fileID: 0}
+  inventory: {fileID: 0}
+  playerSounds: {fileID: 0}
+  playerHealth: {fileID: 0}
+  playerShooting: {fileID: 0}
+  playerMovement: {fileID: 0}
+  nameText: {fileID: 0}
+  maskedObject: {fileID: 0}
+  body: {fileID: 0}
+  velocities:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!114 &114671827107402914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,7 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94522899d2734db4c8e2715c149c6496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
   capsuleCollider: {fileID: 0}
   walkSpeed: 5
   strafeSpeed: 4
@@ -191,8 +282,16 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
+  holdMovement: {fileID: 0}
   lockedMode: 1
   unlockedMode: 0
+  player: {fileID: 114516072567542280}
+  itemDragMultiplier: 1
+  moveDirection: {x: 0, y: 0, z: 0}
+  isMoving: 0
+  moveMaterial: {fileID: 0}
+  stopMaterial: {fileID: 0}
+  groundSphere: {fileID: 0}
 --- !u!114 &114984285226049282
 MonoBehaviour:
   m_ObjectHideFlags: 1

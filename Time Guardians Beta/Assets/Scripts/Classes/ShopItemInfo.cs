@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[System.Serializable]
-public class ShopItemInfo
+[CreateAssetMenu(fileName = "New Shop Item", menuName = "Shop/Item", order = 1)]
+public class ShopItemInfo : ScriptableObject
 {
     public string shopItemName;
 
