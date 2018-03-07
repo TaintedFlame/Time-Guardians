@@ -197,12 +197,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // If falling
-        if (fallTime > 150)
-        {
-            waitingForGrounded = 3;
-        }
-
         // Set TouchingAndJumped
         touchingAndJumped = (fallAminTime > 10 && touching > 0);
 
@@ -484,15 +478,12 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<Rigidbody>().AddExplosionForce(20, transform.position + new Vector3(0, 0, 0), 8, 3, ForceMode.VelocityChange);
         }
 
-        // print((Mathf.Round(rb.velocity.magnitude * 100))/100);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.relativeVelocity.magnitude > 20f)
+        if (Input.GetKeyDown("i"))
         {
-            glideTime = 100;
+            print(isMoving + " " + glideTime + " " + waitingForGrounded + " " + touchingAndJumped + " " + fallAminTime);
         }
+
+        // print((Mathf.Round(rb.velocity.magnitude * 100))/100);
     }
 
     private void OnCollisionStay(Collision collision)
