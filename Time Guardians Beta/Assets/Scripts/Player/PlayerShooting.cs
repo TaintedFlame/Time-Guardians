@@ -479,7 +479,9 @@ public class PlayerShooting : NetworkBehaviour
     {
         if (!itemInfo.shopVisual.activeInHierarchy)
         {
+            
             PlayerCanvas.canvas.ToggleShop(itemInfo.shopType);
+            PlayerCanvas.canvas.Invoke("DrawMenu", 0.1f);
         }
         else
         {

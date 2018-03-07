@@ -35,3 +35,10 @@ sysinfo.txt
 *.meta
 *.meta
 Time Guardians Beta/Assets/Extras/Cinemachine/Timeline/LegacyTimelineAPI.unitypackage.meta
+*.ide-shm
+*.ide-wal
+*.ide
+*.ide
+*.lock
+*.ide
+Time Guardians Beta/.vs/Time Guardians Beta/v15/sqlite3/storage.ide

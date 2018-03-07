@@ -30997,7 +30997,7 @@ MonoBehaviour:
   - soundName: l96Action
     soundType: weaponAction
     audioClips:
-    - {fileID: 8300000, guid: 3507e7c82bdb5eb4d9e37d5ae05f0299, type: 3}
+    - {fileID: 0}
   soundTypes:
   - soundType: weaponFire
     priority: 128
@@ -32006,7 +32006,7 @@ MonoBehaviour:
   clientRole: 
   masked: 0
   viewTrasform: {fileID: 4183526584981332}
-  inventory: {fileID: 114719550256770398}
+  inventory: {fileID: 0}
   playerSounds: {fileID: 114048764280054034}
   playerHealth: {fileID: 114155106134854652}
   playerShooting: {fileID: 114587013343152814}

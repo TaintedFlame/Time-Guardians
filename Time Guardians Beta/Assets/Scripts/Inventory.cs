@@ -133,6 +133,10 @@ public class Inventory : NetworkBehaviour
         {
             SelectItem(4);
         }
+        if (Input.GetKeyDown("6"))
+        {
+            SelectItem(5);
+        }
 
         if (Input.GetKeyDown("q") && items[selected] != null && items[selected].itemName != "empty" && items[selected].itemName != null && items[selected].itemName != "")
         {
