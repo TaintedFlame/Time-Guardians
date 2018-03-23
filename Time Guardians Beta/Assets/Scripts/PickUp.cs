@@ -75,16 +75,19 @@ public class PickUp : NetworkBehaviour
             }
         }
 
-        if (item != null && item.obj != null && !item.obj.activeInHierarchy && !disabled)
+        if (item != null && item.obj != null)
         {
-            item.obj.SetActive(true);
-        }
+            if (!item.obj.activeInHierarchy && !disabled)
+            {
+                item.obj.SetActive(true);
+            }
 
-        if (disable == id)
-        {
-            item.obj.SetActive(false);
-            disabled = true;
-            disable = -1;
+            if (disable == id)
+            {
+                item.obj.SetActive(false);
+                disabled = true;
+                disable = -1;
+            }
         }
 
         if (isServer && delay > 0)

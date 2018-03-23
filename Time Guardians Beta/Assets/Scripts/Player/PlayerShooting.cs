@@ -6,6 +6,7 @@ public class PlayerShooting : NetworkBehaviour
 {
     [SerializeField] Transform firePosition;
     [SerializeField] Transform throwPosition;
+    [SerializeField] Transform grabPosition;
 
     public float elapsedTime;
     bool elapseTime;
@@ -26,6 +27,18 @@ public class PlayerShooting : NetworkBehaviour
 
     float scopeTransitionValue = 0.17f;
     float scopeTransitionTime;
+    
+    Rigidbody grabbing;
+    public float grabPower;
+    public float grabRange;
+    public float grabStopRange;
+    public float grabSlowRange;
+    public float grabAngularDrag;
+    public float grabSlowPower;
+    public float maxGrabDistance;
+
+    [SyncVar] public bool grabMatch;
+    bool grabMove;
 
     Player player;
     Rigidbody rigid;
@@ -46,14 +59,14 @@ public class PlayerShooting : NetworkBehaviour
 
     public GameObject throwable;
 
-    void Awake()
+    void Awake ()
     {
         player = GetComponent<Player>();
         rigid = GetComponent<Rigidbody>();
         gunPositionSync = GetComponent<GunPositionSync>();
     }
         
-    void Start()
+    void Start ()
     {
         if (isLocalPlayer)
         {
@@ -63,8 +76,14 @@ public class PlayerShooting : NetworkBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate ()
     {
+        // Syncing Grab Position
+        if (grabbing != null)
+        {
+            // grabbing.GetComponent<NetworkTransform>().;
+        }
+
         if (!canShoot)
         {
             return;
@@ -74,11 +93,16 @@ public class PlayerShooting : NetworkBehaviour
         {
             elapsedTime += Time.deltaTime;
         }
+        // Grab Movement
+        if (grabMove && grabbing != null)
+        {
+            GrabMove();
+        }
 
         FOV();
     }
 
-    void Update()
+    void Update ()
     {
         if (!canShoot)
         {
@@ -185,39 +209,125 @@ public class PlayerShooting : NetworkBehaviour
         if (!Cursor.visible)
         {
             // Right-Click
-            if (Input.GetMouseButtonDown(1) && scopeTransitionTime == 0)
+            if (itemInfo.canGrab)
             {
-                pressScopeToggle = true;
+                #region Grabbing
+                
+                /// 
+                // Grabbing
+                //
+
+                // Animation
+
+                if (Input.GetMouseButton(1))
+                {
+                    if (grabbing != null && currentItemObject.GetComponent<Animator>().GetInteger("Force") != 2)
+                    {
+                        currentItemObject.GetComponent<Animator>().SetInteger("Force", 2);
+                    }
+                    if (grabbing == null && currentItemObject.GetComponent<Animator>().GetInteger("Force") != 1)
+                    {
+                        currentItemObject.GetComponent<Animator>().SetInteger("Force", 1);
+                    }
+                }
+                else if (currentItemObject.GetComponent<Animator>().GetInteger("Force") != 0)
+                {
+                    currentItemObject.GetComponent<Animator>().SetInteger("Force", 0);
+
+                    ClientGrab(false);
+                    CmdGrabObject(Vector3.zero, Vector3.zero, 0, false);
+                }
+
+                // Selecting Object
+
+                if (grabbing != null && (grabMatch || (!grabMatch && isServer)))
+                {
+                    // Moving Grabbed Object
+
+                    if (Input.GetMouseButton(1))
+                    {
+                        // Determining whether object is worthy of grabment
+                        if (Vector3.Distance(grabbing.transform.position, grabPosition.transform.position) > maxGrabDistance)
+                        {
+                            ClientGrab(false);
+                            CmdGrabObject(Vector3.zero, Vector3.zero, 0, false);
+
+                            print("Too far away");
+                        }
+                        // Moving Object
+                        if (grabbing != null)
+                        {
+                            grabMove = true;
+                        }
+                    }
+                    else
+                    {
+                        grabMove = false;
+                    }
+                }
+                else if (Input.GetMouseButton(1))
+                {
+                    // Finding potential grabby
+
+                    RaycastHit grabHit;
+
+                    Ray grabRay = new Ray(firePosition.position, firePosition.forward);
+                    bool grabResult = Physics.Raycast(grabRay, out grabHit, grabRange);
+
+                    if (grabResult && grabHit.transform.GetComponent<Rigidbody>() != null && grabHit.transform.GetComponent<Player>() == null)
+                    {
+                        print("allah");
+
+                        grabbing = hit.transform.GetComponent<Rigidbody>();
+                        ClientGrab(true);
+                        CmdGrabObject(firePosition.position, firePosition.forward, grabRange, true);
+
+                        print("uack");
+                    }
+                }
+
+                #endregion
             }
-
-            if (itemInfo.canScope && pressScopeToggle && !firing && elapsedTime == 0 && !elapseTime && scopeTransitionTime == 0)
+            else
             {
-                scoped = !scoped;
-                scopeTransitionTime = scopeTransitionValue;
-                pressScopeToggle = false;
+                ///
+                // Scoping
+                //
 
-                if (itemInfo.scopeImage)
+                if (Input.GetMouseButtonDown(1) && scopeTransitionTime == 0 && itemInfo.canScope)
                 {
-                    PlayerCanvas.canvas.ScopeImage(scoped);
-                    cameras[1].gameObject.SetActive(!scoped);
+                    pressScopeToggle = true;
                 }
 
-                currentItemObject.GetComponent<Animator>().SetBool("Scope", scoped);
-                if (scoped)
+                if (itemInfo.canScope && pressScopeToggle && !firing && elapsedTime == 0 && !elapseTime && scopeTransitionTime == 0)
                 {
-                    currentItemObject.GetComponent<Animator>().SetTrigger("Scoping");
+                    scoped = !scoped;
+                    scopeTransitionTime = scopeTransitionValue;
+                    pressScopeToggle = false;
 
-                    scopeSpeed = scopeDefaultSpeed;
-                    cameraScript.sensitivity /= itemInfo.scopeZoomValue;
+                    if (itemInfo.scopeImage)
+                    {
+                        PlayerCanvas.canvas.ScopeImage(scoped);
+                        cameras[1].gameObject.SetActive(!scoped);
+                    }
 
-                    PlayerCanvas.canvas.EditReticuleSize(itemInfo.scopeReticuleSpacing, 0.1f);
-                }
-                else
-                {
-                    currentItemObject.GetComponent<Animator>().SetTrigger("Unscoping");
+                    currentItemObject.GetComponent<Animator>().SetBool("Scope", scoped);
+                    if (scoped)
+                    {
+                        currentItemObject.GetComponent<Animator>().SetTrigger("Scoping");
 
-                    scopeSpeed = -scopeDefaultSpeed;
-                    cameraScript.sensitivity *= itemInfo.scopeZoomValue;
+                        scopeSpeed = scopeDefaultSpeed;
+                        cameraScript.sensitivity /= itemInfo.scopeZoomValue;
+
+                        PlayerCanvas.canvas.EditReticuleSize(itemInfo.scopeReticuleSpacing, 0.1f);
+                    }
+                    else
+                    {
+                        currentItemObject.GetComponent<Animator>().SetTrigger("Unscoping");
+
+                        scopeSpeed = -scopeDefaultSpeed;
+                        cameraScript.sensitivity *= itemInfo.scopeZoomValue;
+                    }
                 }
             }
             // Left-Click or Left-Clicking
@@ -225,7 +335,7 @@ public class PlayerShooting : NetworkBehaviour
             {
                 if (itemInfo.canUseWhileSprinting || (!itemInfo.canUseWhileSprinting && (!Input.GetButton("Fire3") || (Input.GetButton("Fire3") && scoped))))
                 {
-                    if (NetworkGameInfo.networkGameInfo.gameOn || (!NetworkGameInfo.networkGameInfo.gameOn && !couldHit))
+                    if (NetworkGameInfo.networkGameInfo != null && (NetworkGameInfo.networkGameInfo.gameOn || (!NetworkGameInfo.networkGameInfo.gameOn && !couldHit)))
                     {
                         if (!cantHit || (cantHit && !couldHit))
                         {
@@ -472,7 +582,7 @@ public class PlayerShooting : NetworkBehaviour
             currentItemObject.GetComponent<Animator>().SetTrigger("Throw");
         }
 
-        CmdRequestThrow(throwPosition.position, throwPosition.forward * itemInfo.speed);
+        CmdRequestThrow(throwPosition.position, throwPosition.forward * itemInfo.speed, itemInfo.itemName);
     }
 
     public void Shop ()
@@ -481,7 +591,6 @@ public class PlayerShooting : NetworkBehaviour
         {
             
             PlayerCanvas.canvas.ToggleShop(itemInfo.shopType);
-            PlayerCanvas.canvas.Invoke("DrawMenu", 0.1f);
         }
         else
         {
@@ -543,12 +652,136 @@ public class PlayerShooting : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Grabbing
+    /// </summary>
+
+    void GrabMove()
+    {
+        Quaternion rot = grabbing.transform.rotation;
+        grabbing.transform.LookAt(grabPosition);
+
+        // When Close enough, stop.
+        if (Vector3.Distance(grabbing.transform.position, grabPosition.transform.position) < grabStopRange)
+        {
+            grabbing.velocity *= 0;
+        }
+        else if (Vector3.Distance(grabbing.transform.position, grabPosition.transform.position) < grabSlowRange)
+        {
+            grabbing.velocity = (grabbing.transform.forward);
+
+            grabbing.velocity *= (Vector3.Distance(grabbing.transform.position, grabPosition.transform.position)) * grabSlowPower;
+            grabbing.angularVelocity *= grabAngularDrag;
+        }
+        else
+        {
+            grabbing.velocity = (grabbing.transform.forward);
+
+            grabbing.velocity *= (Vector3.Distance(grabbing.transform.position, grabPosition.transform.position)) * grabPower;
+        }
+
+        grabbing.transform.rotation = rot;
+
+        grabbing.velocity += rigid.velocity;
+
+        CmdSendGrabTransform(grabbing.position, grabbing.rotation, grabbing.velocity, grabbing.angularVelocity);
+    }
+
+    void GrabObject (Rigidbody value)
+    {
+        // Find Object
+        if (value != null && grabbing == null && !value.gameObject.GetComponent<NetworkIdentity>().localPlayerAuthority)
+        {
+            grabbing = value;
+            grabbing.useGravity = false;
+
+            grabMatch = true;
+        }
+        // Leave Object
+        if (value == null && grabbing != null)
+        {
+            grabbing.useGravity = true;
+
+            grabbing = null;
+
+            grabMatch = false;
+        }
+    }
+
     [Command]
-    void CmdRequestThrow (Vector3 pos, Vector3 vel)
+    void CmdGrabObject (Vector3 pos, Vector3 dir, float range, bool getAuthority)
+    {
+        if (player != Player.player)
+        {
+            // Server Finds Object
+            if (getAuthority && grabbing == null)
+            {
+                // Finding potential grabby
+
+                RaycastHit hit;
+
+                Ray ray = new Ray(pos, dir);
+                bool result = Physics.Raycast(ray, out hit, range);
+
+                if (result && hit.transform.GetComponent<Rigidbody>() != null && hit.transform.GetComponent<Player>() == null)
+                {
+                    GrabObject(hit.transform.GetComponent<Rigidbody>());
+                }
+            }
+
+            // Server Leaves Object
+            if (!getAuthority && grabbing != null)
+            {
+                GrabObject(null);
+            }
+        }
+    }
+
+    void ClientGrab (bool value)
+    {
+        if (!isServer)
+        {
+            // Find
+            if (value)
+            {
+                grabbing.GetComponent<NetworkTransform>().enabled = false;
+            }
+            // Leave
+            if (!value && grabbing != null)
+            {
+                grabbing.GetComponent<NetworkTransform>().enabled = true;
+            }
+        }
+        if (!value)
+        {
+            grabbing = null;
+        }
+    }
+
+    [Command]
+    void CmdSendGrabTransform (Vector3 pos, Quaternion rot, Vector3 vel, Vector3 angVel)
+    {
+        if (grabbing != null)
+        {
+            grabbing.position = pos;
+            grabbing.rotation = rot;
+            grabbing.velocity = vel;
+            grabbing.angularVelocity = angVel;
+        }
+    }
+
+    /// <summary>
+    /// Other
+    /// </summary>
+
+
+    [Command]
+    void CmdRequestThrow (Vector3 pos, Vector3 vel, string itemName)
     {
         GameObject obj = Instantiate(throwable, pos, Quaternion.identity);
         obj.GetComponent<Rigidbody>().velocity = vel;
         NetworkServer.Spawn(obj);
+        obj.GetComponent<Throwable>().item = itemName;
         obj.GetComponent<Throwable>().thrower = player.playerName;
     }
 

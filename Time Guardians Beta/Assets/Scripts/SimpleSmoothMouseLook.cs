@@ -35,13 +35,8 @@ public class SimpleSmoothMouseLook : MonoBehaviour
         recoil += value;
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        if (Input.GetKeyDown("p"))
-        {
-            recoil = 50;
-        }
-
         if (recoil > 0)
         {
             _mouseAbsolute += new Vector2(0, recoil / 10);
@@ -51,6 +46,14 @@ public class SimpleSmoothMouseLook : MonoBehaviour
             {
                 recoil = 0;
             }
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown("p"))
+        {
+            recoil = 50;
         }
 
         // Allow the script to clamp based on a desired target value.

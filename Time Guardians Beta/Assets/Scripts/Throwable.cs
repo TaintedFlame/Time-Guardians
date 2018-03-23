@@ -8,17 +8,76 @@ public class Throwable : NetworkBehaviour
     [SyncVar] public string item;
     [SyncVar] public string thrower;
 
+    [Header("Effects")]
+
     public GameObject explosionParticleEffect;
 
+    public GameObject smokeParticleEffect;
+    public GameObject smokedGrenadeObject;
+
+    public GameObject flashParticleEffect;
+    public GameObject flashedGrenadeObject;
+
+    [Header("Essentials")]
+
     public GameObject[] items;
+    GameObject selectedItem;
+
+    Rigidbody rigid;
+
+    ParticleSystem ps;
+
+    int hitElapsedTime;
 
     void Start()
     {
-        StartCoroutine("Explode", 3);
+        // 
+        rigid = GetComponent<Rigidbody>();
+
+        // Set Effects
+        if (item == "fragGrenade")
+        {
+            StartCoroutine("Explode", 3);
+        }
+        if (item == "smokeGrenade")
+        {
+            StartCoroutine("Smoke", 3);
+        }
+        if (item == "flashGrenade")
+        {
+            StartCoroutine("Flash", 3);
+        }
+
+        // Enable Visuals
+        foreach (GameObject g in items)
+        {
+            if (g.name == item)
+            {
+                selectedItem = g;
+                selectedItem.SetActive(true);
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (hitElapsedTime > 5 && collision.transform.root.transform.gameObject.name != Player.player.transform.gameObject.name)
+        {
+            selectedItem.GetComponent<AudioSource>().Play();
+        }
+
+        hitElapsedTime = 0;
+    }
+
+    private void FixedUpdate()
+    {
+        hitElapsedTime++;
     }
 
     IEnumerator Explode(int time)
     {
+        #region Explosion
+
         yield return new WaitForSeconds(time);
 
         explosionParticleEffect.SetActive(true);
@@ -26,18 +85,22 @@ public class Throwable : NetworkBehaviour
         {
             g.SetActive(false);
         }
+        rigid.isKinematic = true;
+        transform.rotation = Quaternion.identity;
 
         Collider[] objectsInRange = Physics.OverlapSphere(transform.position, 10f);
 
         foreach (Collider col in objectsInRange)
         {
-            bool doContinue = false;
+            // bool doContinue = false;
             //
             Quaternion rot = transform.rotation;
+            Vector3 pos = transform.position;
 
             RaycastHit hit;
             transform.LookAt(col.transform);
-            Ray ray = new Ray(transform.position + new Vector3(0,0,0), transform.forward);
+            transform.position += new Vector3(0, 0.25f, 0);
+            Ray ray = new Ray(transform.position + new Vector3(0, 0, 0), transform.forward);
             bool result = Physics.Raycast(ray, out hit, 8);
 
             Rigidbody newRigid = null;
@@ -81,10 +144,66 @@ public class Throwable : NetworkBehaviour
                 }
             }
 
+            transform.position = pos;
             transform.rotation = rot;
         }
 
         yield return new WaitForSeconds(1);
         Destroy(gameObject);
+
+        #endregion
+    }
+
+    IEnumerator Smoke(int time)
+    {
+        yield return new WaitForSeconds(time);
+
+        smokeParticleEffect.SetActive(true);
+        selectedItem.SetActive(false);
+        smokedGrenadeObject.SetActive(true);
+
+        yield return new WaitForSeconds(10);
+
+        smokeParticleEffect.transform.parent = null;
+
+        yield return new WaitForSeconds(10);
+
+        ps = smokeParticleEffect.GetComponent<ParticleSystem>();
+        var em = ps.emission;
+        em.SetBursts(new ParticleSystem.Burst[] { });
+
+        yield return new WaitForSeconds(5);
+        Destroy(smokeParticleEffect);
+    }
+
+    IEnumerator Flash(int time)
+    {
+        yield return new WaitForSeconds(time);
+
+        // Check Flashbang Effect
+        if (selectedItem.GetComponentInChildren<Renderer>().isVisible)
+        {
+            selectedItem.transform.LookAt(Player.player.playerShooting.cameras[0].transform.position);
+            RaycastHit hit;
+
+            Ray ray = new Ray(selectedItem.transform.position, selectedItem.transform.forward);
+            bool result = Physics.Raycast(ray, out hit, 500f);
+
+            if (result && hit.transform.root.transform.GetComponent<Rigidbody>() != null)
+            {
+                PlayerCanvas.canvas.Flashbang();
+            }
+        }
+
+        // Other shit
+
+        flashParticleEffect.SetActive(true);
+        flashParticleEffect.transform.parent = null;
+        selectedItem.SetActive(false);
+        flashedGrenadeObject.SetActive(true);
+
+        yield return new WaitForSeconds(1);
+
+        Destroy(flashParticleEffect);
     }
 }

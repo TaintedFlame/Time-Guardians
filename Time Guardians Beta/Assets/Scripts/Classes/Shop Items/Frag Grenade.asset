@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c599489d9820045a4ad990f023525e, type: 3}
+  m_Name: Frag Grenade
+  m_EditorClassIdentifier: 
+  shopItemName: frag
+  displayName: Frag Grenade
+  worth: 1
+  image: {fileID: 21300000, guid: cc5ea82937935e6439dd2e3363abf56d, type: 3}
+  description: Supplies with 1 Lethal Frag Grenade. Cannot be put back in extra slot
+    once dropped.
+  mutliPurchasable: 1
+  itemName: fragGrenade

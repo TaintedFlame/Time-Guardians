@@ -38,11 +38,7 @@ public class NetworkGameInfo : NetworkBehaviour
 
         // Placing Pickups
 
-        foreach (GameObject g in pickUpSpawnpoints)
-        {
-            GameObject newPickup = Instantiate(pickUp, g.transform.position, g.transform.rotation);
-            NetworkServer.Spawn(newPickup);
-        }
+        ReplaceEntities();
 
         if (isServer)
         {
@@ -336,7 +332,17 @@ public class NetworkGameInfo : NetworkBehaviour
             
             foreach (GameObject ent in entities)
             {
-                NetworkServer.Destroy(ent);
+                if (ent.GetComponent<NetworkIdentity>() != null)
+                {
+                    NetworkServer.Destroy(ent);
+                }
+                else
+                {
+                    for (int i = 0; i < players.Count; i++)
+                    {
+                        players[i].RpcRequestCallback("ResetEntities", 0);
+                    }
+                }
             }
             PickUp.pickUps.Clear();
 
@@ -353,11 +359,7 @@ public class NetworkGameInfo : NetworkBehaviour
 
             // Placing Pickups
 
-            foreach (GameObject g in pickUpSpawnpoints)
-            {
-                GameObject newPickup = Instantiate(pickUp, g.transform.position, g.transform.rotation);
-                NetworkServer.Spawn(newPickup);
-            }
+            Invoke("ReplaceEntities", 3f);
         }
     }
     
@@ -414,10 +416,23 @@ public class NetworkGameInfo : NetworkBehaviour
         soloAlive += solo;
     }
 
+    void ReplaceEntities()
+    {
+        foreach (GameObject g in pickUpSpawnpoints)
+        {
+            GameObject newPickup = Instantiate(pickUp, g.transform.position, g.transform.rotation);
+            NetworkServer.Spawn(newPickup);
+        }
+    }
+
     public void Callback(string callback, int time)
     {
         Invoke(callback, time);
     }
+
+    /// <summary>
+    /// RPC's
+    /// </summary>
 
     void RawRoleDisplay ()
     {
@@ -435,6 +450,16 @@ public class NetworkGameInfo : NetworkBehaviour
         for (int i = 0; i < playerIds.Count; i++)
         {
             PlayerCanvas.canvas.TabMenuAdd(playerIds[i]);
+        }
+    }
+
+    void ResetEntities ()
+    {
+        GameObject[] entities = GameObject.FindGameObjectsWithTag("Entity");
+
+        foreach (GameObject ent in entities)
+        {
+            Destroy(ent);
         }
     }
 

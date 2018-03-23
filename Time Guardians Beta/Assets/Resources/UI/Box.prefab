@@ -176,7 +176,8 @@ MonoBehaviour:
   itemImage: {fileID: 114846940515923542}
   onSpecialImage: {fileID: 114679085743645008}
   favouriteImage: {fileID: 114204440539851146}
-  shopObject: {fileID: 11400000, guid: 8647bbaf86cba0f47aabedd867e0ade9, type: 2}
+  shopObject: {fileID: 11400000, guid: eb3ceec9619b1fa48aeb5397d71132e7, type: 2}
+  index: -1
 --- !u!114 &114844143342825622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,9 +217,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnSelected
-        m_Mode: 3
+      - m_Target: {fileID: 114690339217722306}
+        m_MethodName: Clicked
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

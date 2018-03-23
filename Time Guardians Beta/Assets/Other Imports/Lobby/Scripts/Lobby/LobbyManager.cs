@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using UnityEngine.Networking.Types;
 using UnityEngine.Networking.Match;
 using System.Collections;
+using System.Collections.Generic;
 
 
 namespace Prototype.NetworkLobby
@@ -39,6 +40,7 @@ namespace Prototype.NetworkLobby
         public Text hostInfo;
 
         public GameObject loadingScreen;
+        public GameObject[] loadingContent;
 
         //Client numPlayers from NetworkManager is always 0, so we count (throught connect/destroy in LobbyPlayer) the number
         //of players, so that even client know how many player there is.
@@ -392,12 +394,38 @@ namespace Prototype.NetworkLobby
         //Adding the Loading Screen
         public override void ServerChangeScene(string newSceneName)
         {
-            loadingScreen.SetActive(true);
+            // Loading Screen
+
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                loadingScreen.SetActive(true);
+
+                foreach (GameObject g in loadingContent)
+                {
+                    g.SetActive(false);
+                }
+                loadingContent[Random.Range(0, loadingContent.Length)].SetActive(true);
+
+                // Reset Information
+
+                Player.player = null;
+                Player.players = new List<Player>();
+                NetworkGameInfo.players = new List<Player>();
+                NetworkGameInfo.pickUpSpawnpoints = new List<GameObject>();
+                NetworkGameInfo.networkGameInfo = null;
+                NetworkGameInfo.bodies = new List<GameObject>();
+                PlayerCanvas.canvas = null;
+                PlayerCanvas.selectedShop = null;
+                PickUp.pickUps = new List<GameObject>();
+            }
+
+            //
+
             base.ServerChangeScene(newSceneName);
             
         }
 
-        //Removing the Loading Screen
+        // Removing the Loading Screen
         public override void OnClientSceneChanged(NetworkConnection conn)
         {
             base.OnClientSceneChanged(conn);

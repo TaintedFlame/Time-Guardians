@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     int waitingForGrounded;
 
     int touching;
+    int lastToucing;
     bool touchingAndJumped;
 
     public PhysicMaterial moveMaterial;
@@ -67,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
     float lastHight;
     float hight;
     int fallAminTime;
+    int jumpTime;
 
     float reticuleSpeed = 0.17f;
 
@@ -109,6 +111,8 @@ public class PlayerMovement : MonoBehaviour
             }
             
         } */
+
+        jumpTime++;
 
         // Sprinting
         if ((Input.GetButton("Fire3") && player == null) || (Input.GetButton("Fire3") && player != null && !player.playerShooting.scoped))
@@ -190,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
         // Was suddenly hit
         if (player != null)
         {
-            if (player.velocities[0].magnitude - player.velocities[4].magnitude > 4)
+            if (!Grounded() && jumpTime > 100 && player.velocities[0].magnitude - player.velocities[4].magnitude > 6)
             {
                 glideTime = 30;
                 waitingForGrounded = 3;
@@ -393,7 +397,7 @@ public class PlayerMovement : MonoBehaviour
         // Untouching
         if (touching > 0)
         {
-            touching--;
+            touching = 0;
         }
     }
 
@@ -480,7 +484,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown("i"))
         {
-            print(isMoving + " " + glideTime + " " + waitingForGrounded + " " + touchingAndJumped + " " + fallAminTime);
+            print(isMoving + " " + glideTime + " " + waitingForGrounded + " " + touchingAndJumped + " " + fallAminTime + " " + touching);
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && Grounded())
+        {
+            jumpTime = 0;
         }
 
         // print((Mathf.Round(rb.velocity.magnitude * 100))/100);
@@ -488,7 +496,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        touching++;
+        if (collision.transform.root.transform.GetComponent<Rigidbody2D>() == null)
+        {
+            touching++;
+        }
     }
 }
 //BTW hey Dom :)

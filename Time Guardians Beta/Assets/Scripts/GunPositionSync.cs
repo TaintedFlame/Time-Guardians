@@ -53,7 +53,6 @@ public class GunPositionSync : NetworkBehaviour
         }
         else
         {
-            print(pitch);
             float newPitch = pitch;
 
             if (newPitch > 180)
@@ -61,7 +60,6 @@ public class GunPositionSync : NetworkBehaviour
                 newPitch -= 360;
             }
             newPitch = Mathf.Clamp(newPitch, -maxPitch, maxPitch);
-            print(newPitch);
 
             Vector3 currentOffset = handMount.position - transform.position;
             gunPivot.localPosition += currentOffset - lastOffset;

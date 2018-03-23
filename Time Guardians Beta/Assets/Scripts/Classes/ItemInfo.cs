@@ -36,6 +36,8 @@ public class ItemInfo : MonoBehaviour
     public float walkDrag = 1;
     public float sprintDrag = 1;
 
+    public bool canGrab;
+
     [Header("Weapon")]
 
     public int damage;

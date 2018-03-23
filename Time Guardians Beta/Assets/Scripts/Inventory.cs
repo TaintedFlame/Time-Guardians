@@ -32,9 +32,99 @@ public class Inventory : NetworkBehaviour
         Invoke("ResetInv", 0.01f);
     }
 
+    void Update()
+    {
+        #region Button Pushes
+
+        if (Input.GetKeyDown("1"))
+        {
+            SelectItem(0);
+        }
+        if (Input.GetKeyDown("2"))
+        {
+            SelectItem(1);
+        }
+        if (Input.GetKeyDown("3"))
+        {
+            SelectItem(2);
+        }
+        if (Input.GetKeyDown("4"))
+        {
+            SelectItem(3);
+        }
+        if (Input.GetKeyDown("5"))
+        {
+            SelectItem(4);
+        }
+        if (Input.GetKeyDown("6"))
+        {
+            SelectItem(5);
+        }
+        if (Input.GetKeyDown("7"))
+        {
+            SelectItem(6);
+        }
+        if (Input.GetKeyDown("8"))
+        {
+            SelectItem(7);
+        }
+        if (Input.GetKeyDown("9"))
+        {
+            SelectItem(8);
+        }
+        if (Input.GetKeyDown("0"))
+        {
+            SelectItem(9);
+        }
+        #endregion
+
+        // Trying to drop item
+        if (Input.GetKeyDown("q") && items[selected] != null && items[selected].itemName != "empty" && items[selected].itemName != null && items[selected].itemName != "")
+        {
+            for (int i = 0; i < player.playerShooting.firstItem.Length; i++)
+            {
+                if (player.playerShooting.firstItem[i].GetComponent<ItemInfo>().itemName == items[selected].itemName && player.playerShooting.firstItem[i].GetComponent<ItemInfo>().canDrop)
+                {
+                    DropItem();
+                }
+            }
+        }
+
+        // Scroll Wheel
+        if (!PlayerCanvas.canvas.shopObject.activeInHierarchy)
+        {
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                int max = 5;
+                if (ExtraItemCheck())
+                {
+                    max += 5;
+                }
+
+                int newSelection = selected + 1;
+                if (newSelection == max) { newSelection = 0; }
+
+                SelectItem(newSelection);
+            }
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            {
+                int max = 5;
+                if (ExtraItemCheck())
+                {
+                    max += 5;
+                }
+
+                int newSelection = selected - 1;
+                if (newSelection == -1) { newSelection = max-1; }
+
+                SelectItem(newSelection);
+            }
+        }
+    }
+
     public void ResetInv ()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
             NewItem(i, "empty");
         }
@@ -62,28 +152,73 @@ public class Inventory : NetworkBehaviour
         {
             SelectItem(slot);
         }
+
+        // Show extra slots if extra item present
+        if (ExtraItemCheck() && !PlayerCanvas.canvas.extraItems.activeInHierarchy)
+        {
+            PlayerCanvas.canvas.extraItems.SetActive(true);
+        }
+        if (!ExtraItemCheck() && PlayerCanvas.canvas.extraItems.activeInHierarchy)
+        {
+            PlayerCanvas.canvas.extraItems.SetActive(false);
+        }
+    }
+
+    void DropItem()
+    {
+        CmdDropItem(items[selected].itemName);
+        NewItem(selected, "empty");
+    }
+
+
+    // Check for atleast 1 extra item in your inventory
+    bool ExtraItemCheck()
+    {
+        bool value = false;
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (items[i + 5] != null && items[i + 5].itemName != "empty" && items[i + 5].itemName != "" && items[i + 5].itemName != null)
+            {
+                value = true;
+            }
+        }
+
+        return value;
     }
 
     public void SelectItem (int value)
     {
-        int clipSize = -1;
-        string displayName = "";
-        // Get Weapon Info
-        for (int i = 0; i < itemInfos.Length; i++)
+        if (Player.player != null && Player.player.playerShooting.elapsedTime == 0)
         {
-            if (itemInfos[i].itemName == items[value].itemName)
+            // Dont select extra slot if no extra items
+            if (value < 5 || (value >= 5 && ExtraItemCheck()))
             {
-                clipSize = itemInfos[i].maxclipSize;
-                displayName = itemInfos[i].displayedName;
+                int clipSize = -1;
+                string displayName = "";
+                // Get Weapon Info
+                for (int i = 0; i < itemInfos.Length; i++)
+                {
+                    if (itemInfos[i].itemName == items[value].itemName)
+                    {
+                        clipSize = itemInfos[i].maxclipSize;
+                        displayName = itemInfos[i].displayedName;
+                    }
+                }
+
+                PlayerCanvas.canvas.NewSelection(value, displayName);
+
+                PlayerCanvas.canvas.NewAmmo(items[value].clipAmmo, clipSize, items[value].totalAmmo);
+                selected = value;
+
+                player.playerShooting.GetItem(items[value].itemName);
+            }
+            else if (selected >= 5)
+            {
+                selected = 0;
+                SelectItem(0);
             }
         }
-
-        PlayerCanvas.canvas.NewSelection(value, displayName);
-
-        PlayerCanvas.canvas.NewAmmo(items[value].clipAmmo, clipSize, items[value].totalAmmo);
-        selected = value;
-
-        player.playerShooting.GetItem(items[value].itemName);
     }
 
     void UpdateItemSlot ()
@@ -108,61 +243,6 @@ public class Inventory : NetworkBehaviour
 
             PickUp.disable = pickUpId;
             Player.player.CmdRequestPickupDestroy(pickUpId);
-        }
-    }
-
-	void Update ()
-    {
-        if (Input.GetKeyDown("1"))
-        {
-            SelectItem(0);
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            SelectItem(1);
-        }
-        if (Input.GetKeyDown("3"))
-        {
-            SelectItem(2);
-        }
-        if (Input.GetKeyDown("4"))
-        {
-            SelectItem(3);
-        }
-        if (Input.GetKeyDown("5"))
-        {
-            SelectItem(4);
-        }
-        if (Input.GetKeyDown("6"))
-        {
-            SelectItem(5);
-        }
-
-        if (Input.GetKeyDown("q") && items[selected] != null && items[selected].itemName != "empty" && items[selected].itemName != null && items[selected].itemName != "")
-        {
-            for (int i = 0; i < player.playerShooting.firstItem.Length; i++)
-            {
-                if (player.playerShooting.firstItem[i].GetComponent<ItemInfo>().itemName == items[selected].itemName && player.playerShooting.firstItem[i].GetComponent<ItemInfo>().canDrop)
-                {
-                    CmdDropItem(items[selected].itemName);
-                    NewItem(selected, "empty");
-                }
-            }
-        }
-
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
-        {
-            int newSelection = selected + 1;
-            if (newSelection == 5) { newSelection = 0; }
-
-            SelectItem(newSelection);
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
-        {
-            int newSelection = selected - 1;
-            if (newSelection == -1) { newSelection = 4; }
-
-            SelectItem(newSelection);
         }
     }
 

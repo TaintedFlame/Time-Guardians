@@ -68,12 +68,12 @@ public class PlayerSounds : NetworkBehaviour {
             if (audioSource != null)
             {
                 //
-                if ((pos == null || pos == Vector3.zero) && audioSource.transform.parent != audioParent.transform)
+                if (pos == Vector3.zero && audioSource.transform.parent != audioParent.transform)
                 {
                     audioSource.transform.parent = audioParent.transform;
                     audioSource.transform.position = audioParent.transform.position;
                 }
-                if (pos != null && pos != Vector3.zero)
+                if (pos != Vector3.zero)
                 {
                     audioSource.transform.parent = null;
                     audioSource.transform.position = pos;

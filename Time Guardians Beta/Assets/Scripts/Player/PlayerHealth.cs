@@ -12,6 +12,8 @@ public class PlayerHealth : NetworkBehaviour
 
     public int immuneTime;
 
+    public float lastHitElapsed;
+
 
     void Awake()
     {
@@ -33,6 +35,8 @@ public class PlayerHealth : NetworkBehaviour
         {
             immuneTime--;
         }
+
+        lastHitElapsed += Time.deltaTime;
     }
 
     [ServerCallback]
@@ -49,10 +53,7 @@ public class PlayerHealth : NetworkBehaviour
     [Command]
     void CmdInflictSelfHarm(int damage, int direction)
     {
-        if (player.alive)
-        {
-            TakeDamage(damage, direction, "");
-        }
+        TakeDamage(damage, direction, "");
     }
 
     [Server]
@@ -60,7 +61,7 @@ public class PlayerHealth : NetworkBehaviour
     {
         bool died = false;
 
-        if (immuneTime == 0)
+        if (immuneTime == 0 && player.alive)
         {
             if (health <= 0)
                 return died;
@@ -105,7 +106,22 @@ public class PlayerHealth : NetworkBehaviour
             {
                 PlayerCanvas.canvas.ReceiveDamage(2, direction);
             }
+
+            // Play Hurt Sound
+
+            if (lastHitElapsed > 0.3f)
+            {
+                Vector3 pos = new Vector3();
+                Vector2 volume = new Vector2(0.1f, 0.2f);
+                Vector2 pitch = new Vector2(0.8f, 1f);
+
+                player.playerSounds.PlaySound("hurt", pos, volume, pitch, 20, false);
+            }
         }
+
+        //
+
+        lastHitElapsed = 0;
     }
 
     void OnHealthChanged(int value)

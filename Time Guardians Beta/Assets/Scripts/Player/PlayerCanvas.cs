@@ -9,6 +9,7 @@ public class PlayerCanvas : NetworkBehaviour
 
     public Text fpsText;
 
+
     [Header("Main Components")]
 
     public Slider healthBarSlider;
@@ -22,6 +23,7 @@ public class PlayerCanvas : NetworkBehaviour
     bool masked;
     public Animator overlayAnim;
 
+
     [Header("Reticule Components")]
 
     public GameObject reticule;
@@ -32,6 +34,7 @@ public class PlayerCanvas : NetworkBehaviour
     float reticuleLerpSpeed;
 
     float reticuleElapsedTime;
+
 
     [Header("View Components")]
 
@@ -46,9 +49,17 @@ public class PlayerCanvas : NetworkBehaviour
 
     public HurtInfo[] hurtInfos;
 
-    [Header("Scope Components")]
+
+    [Header("Overlay Components")]
 
     public GameObject scopeImage;
+    public GameObject flashImage;
+    public GameObject smokeImage;
+
+    int flashTime;
+    public bool smoked;
+    [SerializeField] int smokeTime;
+
 
     [Header("Inventory Components")]
 
@@ -59,19 +70,22 @@ public class PlayerCanvas : NetworkBehaviour
     public Image[] slotIcons;
     public Image[] slotImages;
 
+    public GameObject extraItems;
+
     public Text clipText;
     public Text ammoText;
 
     public ImageNameInfo[] imageReferences;
 
-    [Header("Roles")]
 
-    public SyncListString ids;
-    public SyncListString roles;
+    [Header("Roles")]
 
     public Text roleText;
     public Text roleTextback;
     public Image roleImage;
+
+    public SyncListString ids;
+    public SyncListString roles;
 
     public GameObject tabMenu;
     public float tabMenuWidth = 300f;
@@ -81,7 +95,6 @@ public class PlayerCanvas : NetworkBehaviour
     public List<TabInfo> tabItemsInfo = new List<TabInfo>();
 
     [Header("Shop")]
-    List<GameObject> icons = new List<GameObject>();
 
     public string shopType;
     public GameObject shopObject;
@@ -90,10 +103,37 @@ public class PlayerCanvas : NetworkBehaviour
     public GameObject shopIcon;
     public GameObject IconHolder;
 
+    List<GameObject> icons = new List<GameObject>();
+
     public enum ShopSortingTab { All, Weapons, Support, Misc};
     public ShopSortingTab shopSortingTab;
 
     public ShopContents shop;
+
+    // From old ShopController Script
+
+    public static ShopContents selectedShop;
+    public ShopContents traitorShop;
+
+    int lastShopIndex;
+    float lastShopClick = -1;
+
+    public Text crystalText;
+    public Text shopItemNameText;
+    public Text shopItemDescriptionText;
+    public Text shopItemWorthText;
+
+    [Header("Item Menu Components")]
+    
+    public GameObject c4Panel;
+    C4 c4;
+    public GameObject c4ArmButton;
+    public GameObject c4PlantButton;
+    public GameObject c4ArmedText;
+    public GameObject c4PlantedText;
+    public Text c4MinuteText;
+    public Text c4SecondText;
+
 
     [Header("Body Inspection")]
 
@@ -108,6 +148,7 @@ public class PlayerCanvas : NetworkBehaviour
 
     public float elapsedBodyTime = 0;
 
+
     [Header("Game Over")]
 
     public GameObject gameOverObject;
@@ -117,18 +158,14 @@ public class PlayerCanvas : NetworkBehaviour
     public Text goWinTeamName;
     public Text goWinPlayers;
 
-    //Ensure there is only one PlayerCanvas
+    // Ensure there is only one PlayerCanvas
     void Awake()
     {
-        if (canvas == null)
-        {
-            canvas = this;
-        }
+        canvas = this;
     }
 
     void Update()
     {
-        
         fpsText.text = "FPS: " + (int)(1.0 / Time.deltaTime);
 
         if (Input.GetMouseButtonDown(1) || (Input.GetKeyDown("e") && elapsedBodyTime <= 0))
@@ -173,6 +210,15 @@ public class PlayerCanvas : NetworkBehaviour
                 overlayAnim.SetInteger("State", 0);
             }
         }
+
+        // Set Crystal Text
+        if (Player.player != null && Player.player.inventory != null)
+        {
+            if (crystalText.text != "Time Vortex Crystals Collected: " + Player.player.inventory.crystals.ToString())
+            {
+                crystalText.text = "Time Vortex Crystals Collected: " + Player.player.inventory.crystals.ToString();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -185,6 +231,9 @@ public class PlayerCanvas : NetworkBehaviour
         {
             LerpReticuleSize();
         }
+
+        Flashbanging();
+        Smoking();
     }
 
     public void EditReticuleSize(float value, float lerpValue)
@@ -253,12 +302,6 @@ public class PlayerCanvas : NetworkBehaviour
 
             reticuleElapsedTime = 0;
         }
-    }
-
-    public void ScopeImage(bool value)
-    {
-        scopeImage.SetActive(value);
-        inventoryObject.SetActive(!value);
     }
 
     public void SetHealth(int amount)
@@ -337,6 +380,103 @@ public class PlayerCanvas : NetworkBehaviour
         {
             Invoke("Countdown", 1);
         }
+    }
+
+    /// <summary>
+    /// Item menus
+    /// </summary>
+    
+    public void C4Recieve (bool open, bool arm, bool plant, string minutes, string seconds)
+    {
+        c4Panel.SetActive(open);
+
+        c4ArmButton.SetActive(arm);
+        c4PlantButton.SetActive(plant);
+        c4MinuteText.text = minutes;
+        c4SecondText.text = seconds;
+    }
+
+    public void C4Set(bool arm, bool plant)
+    {
+        if (arm)
+        {
+            c4.CmdArmed();
+        }
+        if (plant)
+        {
+            c4.CmdPlanted();
+        }
+    }
+
+    /// <summary>
+    /// Effect Overlays
+    /// </summary>
+
+    public void ScopeImage(bool value)
+    {
+        scopeImage.SetActive(value);
+        inventoryObject.SetActive(!value);
+    }
+
+    public void Flashbang()
+    {
+        flashImage.SetActive(true);
+        if (flashTime == 0)
+        {
+            flashTime = 1;
+        }
+        // Specific #FIX
+    }
+
+    void Flashbanging()
+    {
+        if (flashTime > 0)
+        {
+            // Unflashing
+            if (flashTime >= 500 && flashTime <= 800)
+            {
+                flashImage.GetComponent<Image>().color = new Color(1, 1, 1, 1 - ((float)flashTime - 500) / 300);
+            }
+            // Volume
+            if (flashTime == 10)
+            {
+                flashImage.GetComponent<AudioSource>().Play();
+            }
+            if (flashTime >= 10 && flashTime < 500)
+            {
+                AudioListener.volume = (float)(flashTime - 10) / 489;
+            }
+            
+            // Flashing
+            if (flashTime <= 5)
+            {
+                flashImage.GetComponent<Image>().color = new Color(1,1,1, (float)flashTime / 5);
+            }
+
+            flashTime++;
+        }
+        // End
+        if (flashTime >= 800)
+        {
+            flashImage.SetActive(false);
+
+            flashTime = 0;
+        }
+    }
+
+    void Smoking()
+    {
+        if (smoked && smokeTime < 50)
+        {
+            smokeTime++;
+        }
+        if (!smoked && smokeTime > 0)
+        {
+            smokeTime--;
+        }
+
+        Color c = smokeImage.GetComponent<Image>().color;
+        smokeImage.GetComponent<Image>().color = new Color(c.r, c.g, c.b, ((float)smokeTime / 50));
     }
 
     /// <summary>
@@ -474,7 +614,10 @@ public class PlayerCanvas : NetworkBehaviour
         {
             slotImages[slot].sprite = null;
             slotImages[slot].gameObject.SetActive(false);
-            slotIcons[slot].gameObject.SetActive(true);
+            if (slot < 5)
+            {
+                slotIcons[slot].gameObject.SetActive(true);
+            }
         }
         else
         {
@@ -489,7 +632,9 @@ public class PlayerCanvas : NetworkBehaviour
 
             slotImages[slot].gameObject.SetActive(true);
             if (slot < 5)
-            slotIcons[slot].gameObject.SetActive(false);
+            {
+                slotIcons[slot].gameObject.SetActive(false);
+            }
         }
     }
 
@@ -497,16 +642,15 @@ public class PlayerCanvas : NetworkBehaviour
     {
         itemText.text = itemName;
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
             slotBoxes[i].color = new Color(1,1,1,0.25f);
-            slotIcons[i].color = new Color(0, 0, 0, 0.58f);
             slotImages[i].color = new Color(1, 1, 1, 0.5f);
+            if (i < 5) { slotIcons[i].color = new Color(0, 0, 0, 0.58f); }
         }
         slotBoxes[slotValue].color = new Color(1, 1, 1, 1f);
-        if (slotValue < 5)
-        slotIcons[slotValue].color = new Color(0, 0, 0, 0.78f);
         slotImages[slotValue].color = new Color(1, 1, 1, 1f);
+        if (slotValue < 5) { slotIcons[slotValue].color = new Color(0, 0, 0, 0.78f); }
     }
 
     public void NewAmmo (int clipAmmo, int clipSize, int totAmmo)
@@ -716,28 +860,37 @@ public class PlayerCanvas : NetworkBehaviour
     public void CloseShop()
     {
         Player.player.GetComponent<PlayerShooting>().Shop();
-        foreach (GameObject icon in icons)
-        {
-            Destroy(icon);
-            icons.Remove(icon);
-        }
     }
     public void DrawMenu()
     {
-        
+        // Remove Items
+        GameObject[] removeUs = new GameObject[icons.Count];
+
+        for (int i = 0; i < icons.Count; i++)
+        {
+            removeUs[i] = icons[i];
+        }
+        foreach (GameObject icon in removeUs)
+        {
+            Destroy(icon);
+        }
+
+        icons.Clear();
 
         //Spawn in all Icons
         if (shopSortingTab == ShopSortingTab.All)
         {
-            print(ShopController.selectedShop.shopName + " player canvas");
-            for (int i = 0; i < ShopController.selectedShop.allItems.Length; i++)
+            if (selectedShop.shopName != "" && selectedShop.shopName != null)
             {
-                Debug.Log("Drawing Icon");
-                GameObject shopObj = Instantiate(shopIcon, IconHolder.transform);
-                shopObj.GetComponent<ShopObject>().shopObject = ShopController.selectedShop.allItems[i];
-                shopObj.GetComponent<Button>().onClick.AddListener(() => { shopObject.GetComponent<ShopController>().OnSelected(i); });
-                icons.Add(shopObj);
-                //                                                                                          <----------- Keep working here!
+                for (int i = 0; i < selectedShop.allItems.Length; i++)
+                {
+                    GameObject shopObj = Instantiate(shopIcon, IconHolder.transform);
+                    shopObj.GetComponent<ShopObject>().shopObject = selectedShop.allItems[i];
+                    shopObj.GetComponent<ShopObject>().index = i;
+                    icons.Add(shopObj);
+                }
+
+                SelectShopItem(0);
             }
         }
     }
@@ -783,6 +936,70 @@ public class PlayerCanvas : NetworkBehaviour
             {
 
             }
+        }
+    }
+
+    public void SetShopType(string type)
+    {
+        if (type == "traitor")
+        {
+            selectedShop = traitorShop;
+        }
+
+        // Empty
+        if (type == "" || type == null)
+        {
+            selectedShop = new ShopContents();
+        }
+
+        DrawMenu();
+    }
+
+    public void PurchaseCurrentItem()
+    {
+        PurchaseItem(lastShopIndex);
+    }
+
+    public void SelectShopItem(int index)
+    {
+        // Set Visuals
+        shopItemNameText.text = selectedShop.allItems[index].displayName;
+        shopItemDescriptionText.text = selectedShop.allItems[index].description;
+        shopItemWorthText.text = "Purchase: " + selectedShop.allItems[index].worth + " Crystals";
+
+
+        // Quick Purchase
+        if ((Time.time - lastShopClick) < 0.3 && lastShopIndex == index)
+        {
+            PurchaseItem(index);
+        }
+
+        // Debug.Log((Time.time - lastClick) + "" + lastIndex);
+        lastShopClick = Time.time;
+        lastShopIndex = index;
+    }
+
+    void PurchaseItem (int index)
+    {
+        if (Player.player.inventory.crystals >= selectedShop.allItems[index].worth)
+        {
+            // Take Away the worth of the item to the player's crystals
+            Player.player.inventory.crystals -= selectedShop.allItems[index].worth;
+            // Find Empty Slot
+            for (int i = 5; i < 10; i++)
+            {
+                if (Player.player.inventory.items[i].itemName == "empty" || Player.player.inventory.items[i].itemName == "" || Player.player.inventory.items[i].itemName == null)
+                {
+                    //Give the Item to the player
+                    Debug.Log("Empty Slot");
+                    Player.player.inventory.NewItem(i, selectedShop.allItems[index].itemName);
+                    i = 10;
+                }
+            }
+
+            Debug.Log(selectedShop.shopName);
+            Debug.Log(Player.player.inventory.crystals);
+            Debug.Log(Player.player.inventory.items[Player.player.inventory.items.Length - 1]);
         }
     }
 

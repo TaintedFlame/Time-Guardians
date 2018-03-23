@@ -11,8 +11,18 @@ public class ShopObject : MonoBehaviour
 
     public ShopItemInfo shopObject;
 
+    public int index;
+
     private void Update()
     {
-        itemImage.sprite = shopObject.image;
+        if (itemImage.sprite != shopObject.image)
+        {
+            itemImage.sprite = shopObject.image;
+        }
+    }
+
+    public void Clicked()
+    {
+        PlayerCanvas.canvas.SelectShopItem(index);
     }
 }

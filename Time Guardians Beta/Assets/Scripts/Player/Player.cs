@@ -29,7 +29,7 @@ public class Player : NetworkBehaviour
     [SyncVar(hook = "OnMaskedChanged")] public bool masked;
 
     public Transform viewTrasform;
-    
+
     public Inventory inventory;
     public PlayerSounds playerSounds;
     public PlayerHealth playerHealth;
@@ -47,7 +47,6 @@ public class Player : NetworkBehaviour
 
     void Start()
     {
-
         anim = GetComponent<NetworkAnimator>();
         rigid = GetComponent<Rigidbody>();
         inventory = GetComponent<Inventory>();
@@ -137,14 +136,55 @@ public class Player : NetworkBehaviour
                 if (clientRole == "traitor")
                 {
                     inventory.NewItem(4, "traitorShop");
-                    inventory.crystals = 5;
+                    inventory.crystals = 3;
+
+                    PlayerCanvas.canvas.SetShopType("traitor");
+                }
+                if (clientRole == "serial_killer")
+                {
+                    inventory.NewItem(4, "bloodyKnife");
+                }
+
+                if (clientRole == "" || clientRole == null)
+                {
+                    PlayerCanvas.canvas.SetShopType("");
                 }
             }
+        }
+
+        if (isLocalPlayer)
+        {
+            Effects();
         }
     }
 
     
-    
+    void Effects ()
+    {
+        bool foundSmoke = false;
+        GameObject[] entities = GameObject.FindGameObjectsWithTag("Entity");
+        foreach (GameObject g in entities)
+        {
+            if (g.name == "Smoke Effect")
+            {
+                if (Vector3.Distance(playerShooting.cameras[0].transform.position, g.transform.position) < 5)
+                {
+                    foundSmoke = true;
+                }
+            }
+        }
+        if (foundSmoke)
+        {
+            if (!PlayerCanvas.canvas.smoked)
+            {
+                PlayerCanvas.canvas.smoked = true;
+            }
+        }
+        else if (PlayerCanvas.canvas.smoked)
+        {
+            PlayerCanvas.canvas.smoked =false;
+        }
+    }
 
     void Velocities ()
     {
@@ -298,7 +338,7 @@ public class Player : NetworkBehaviour
 
         if (isServer)
         {
-            playerHealth.immuneTime = 100;
+            playerHealth.immuneTime = 200;
         }
 
         onToggleShared.Invoke(true);
@@ -322,6 +362,14 @@ public class Player : NetworkBehaviour
 
             inventory.Die();
             CmdRequestBodyDrop(transform.position, transform.rotation, playerName);
+
+            // Play Death Sound
+
+            Vector3 pos = new Vector3();
+            Vector2 volume = new Vector2(0.3f, 0.5f);
+            Vector2 pitch = new Vector2(0.8f, 1.2f);
+
+            player.playerSounds.PlaySound("death", pos, volume, pitch, 20, false);
         }
         if (playerControllerId == -1)
         {
