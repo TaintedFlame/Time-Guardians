@@ -19,6 +19,7 @@ MonoBehaviour:
   - pbGrowSelectionUsingAngle
   - pbGrowSelectionAngleIterative
   - pbUVMaterialPreview
+  - pb_SmoothingGroupEditor::m_DrawNormals
   m_Int_keys:
   - pbDefaultEditLevel
   - pbDefaultSelectionMode
@@ -33,13 +34,13 @@ MonoBehaviour:
   - pbCurrentMaterialPalette
   m_Color_keys: []
   m_Material_keys: []
-  m_Bool_values: 01000101010001
-  m_Int_values: 0000000002000000010000000000000000000000
+  m_Bool_values: 0100010101000100
+  m_Int_values: 0100000002000000010000000100000000000000
   m_Float_values:
   - 0
   - 0
   - 60
   m_String_values:
-  - Assets/ProCore/ProBuilder/Data/Default Material Palette.asset
+  - Assets/ProCore/ProBuilder/Data/Material Palette.asset
   m_Color_values: []
   m_Material_values: []

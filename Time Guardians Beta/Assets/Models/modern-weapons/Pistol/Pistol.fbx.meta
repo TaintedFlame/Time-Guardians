@@ -6,10 +6,19 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Pistol
+    100004: Pistol.001
     400000: //RootNode
+    400002: Pistol
+    400004: Pistol.001
     2300000: //RootNode
+    2300002: Pistol
+    2300004: Pistol.001
     3300000: //RootNode
+    3300002: Pistol
+    3300004: Pistol.001
     4300000: Pistol
+    4300002: Pistol.001
   externalObjects:
   - first:
       type: UnityEngine:Material
