@@ -4044,7 +4044,6 @@ MonoBehaviour:
     shopName: Traitor Shop
     allItems:
     - {fileID: 11400000, guid: eb3ceec9619b1fa48aeb5397d71132e7, type: 2}
-    - {fileID: 11400000, guid: 35fc5eaaef64e4745bd9f03c00964269, type: 2}
     weaponsItems: []
     supportItems: []
     miscItems: []
@@ -10395,7 +10394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11815,7 +11814,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: C4 - Timed
+  m_Text: Item Display Name
 --- !u!222 &643667227
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12073,7 +12072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -15988,8 +15987,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A timed explosive with a large blast radius. Press fire button to place
-    on surface, and then use the activate key while looking at placed C4 to open menu.
+  m_Text: Description
 --- !u!222 &959798632
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28147,7 +28145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.49803922, g: 0.49803922, b: 0.49803922, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

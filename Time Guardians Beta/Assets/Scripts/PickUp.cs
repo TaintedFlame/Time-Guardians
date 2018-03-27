@@ -42,9 +42,17 @@ public class PickUp : NetworkBehaviour
 
         if (itemNameSpawn == null || itemNameSpawn == "")
         {
-            int rdm = Random.Range(0, items.Length);
-            // print(rdm);
-            item = items[rdm];
+            List<PickUpInfo> spawnPickups = new List<PickUpInfo>();
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i].itemSlotType == "pistol" || items[i].itemSlotType == "heavy" || items[i].itemSlotType == "grenade")
+                {
+                    spawnPickups.Add(items[i]);
+                }
+            }
+
+            int rdm = Random.Range(0, spawnPickups.Count);
+            item = spawnPickups[rdm];
         }
         else
         {
@@ -107,7 +115,7 @@ public class PickUp : NetworkBehaviour
         {
             if (col.transform.root.gameObject.CompareTag("Player"))
             {
-                col.transform.root.GetComponent<Player>().RpcPickUp(id, item.itemName, item.itemType);
+                col.transform.root.GetComponent<Player>().RpcPickUp(id, item.itemName, item.itemSlotType);
                 touchingPlayer = col.transform.root.gameObject;
             }
         }

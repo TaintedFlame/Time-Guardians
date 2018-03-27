@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15c599489d9820045a4ad990f023525e, type: 3}
-  m_Name: AK47
+  m_Name: C4
   m_EditorClassIdentifier: 
-  shopItemName: akf7
-  displayName: AK-47
+  shopItemName: c4
+  displayName: C4 - Timed
   worth: 1
-  image: {fileID: 21300000, guid: 6f77583ea8652c74bb2ade09ef6d90df, type: 3}
-  description: Supplies an AK-47 with 1 clip of ammo. Cannot be put back in extra
-    slot once dropped.
+  image: {fileID: 21300000, guid: 884f894a68cf2b046b819c5da7580399, type: 3}
+  description: A timed explosive with a large blast radius. Left-click throw wired
+    C4 or Rick-click to wire and plant on surface. Press 'E' on wired C4 to open menu.
   mutliPurchasable: 1
-  itemName: ak47
+  itemName: c4

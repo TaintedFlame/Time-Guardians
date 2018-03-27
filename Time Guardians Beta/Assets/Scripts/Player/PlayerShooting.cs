@@ -276,13 +276,9 @@ public class PlayerShooting : NetworkBehaviour
 
                     if (grabResult && grabHit.transform.GetComponent<Rigidbody>() != null && grabHit.transform.GetComponent<Player>() == null)
                     {
-                        print("allah");
-
                         grabbing = hit.transform.GetComponent<Rigidbody>();
                         ClientGrab(true);
                         CmdGrabObject(firePosition.position, firePosition.forward, grabRange, true);
-
-                        print("uack");
                     }
                 }
 
@@ -601,6 +597,20 @@ public class PlayerShooting : NetworkBehaviour
         itemInfo.shopVisual.SetActive(!itemInfo.shopVisual.activeInHierarchy);
     }
 
+    void C4 (int value)
+    {
+        // Throw
+        if (value == 0)
+        {
+
+        }
+        // Plant
+        if (value == 1)
+        {
+
+        }
+    }
+
     void FOV ()
     {
         if (scopeSpeed != 0)
@@ -842,6 +852,12 @@ public class PlayerShooting : NetworkBehaviour
 
                 PlayerCanvas.canvas.ScopeImage(false);
                 cameras[1].gameObject.SetActive(true);
+
+                if (grabbing != null)
+                {
+                    ClientGrab(false);
+                    CmdGrabObject(Vector3.zero, Vector3.zero, 0, false);
+                }
             }
 
             // Change Item
@@ -882,11 +898,14 @@ public class PlayerShooting : NetworkBehaviour
 
     void ProcessShotEffects(bool playImpact, Vector3 point)
     {
-        currentEffect.PlayShotEffects();
-
-        if (playImpact)
+        if (currentEffect != null)
         {
-            currentEffect.PlayImpactEffect(point);
+            currentEffect.PlayShotEffects();
+
+            if (playImpact)
+            {
+                currentEffect.PlayImpactEffect(point);
+            }
         }
     }
 
@@ -899,14 +918,17 @@ public class PlayerShooting : NetworkBehaviour
     [ClientRpc]
     void RpcProcessShotEffects(bool playImpact, Vector3 point)
     {
-        if (!isLocalPlayer)
+        if (currentEffect != null)
         {
-            if (playImpact)
+            if (!isLocalPlayer)
             {
-                currentEffect.PlayImpactEffect(point);
-            }
+                if (playImpact)
+                {
+                    currentEffect.PlayImpactEffect(point);
+                }
 
-            currentEffect.PlayShotEffects();
+                currentEffect.PlayShotEffects();
+            }
         }
     }
 

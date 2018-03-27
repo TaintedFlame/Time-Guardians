@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 54204720200870524}
   - component: {fileID: 114027488030636446}
   - component: {fileID: 114723046502240450}
-  - component: {fileID: 114499789447297104}
+  - component: {fileID: 114853274595876024}
   m_Layer: 0
   m_Name: Throwables
   m_TagString: Entity
@@ -2458,28 +2458,6 @@ MonoBehaviour:
     i15: 123
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!114 &114499789447297104
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1540506632428078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 465fd0796af057949b7616d117733ff0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: 
-  thrower: 
-  explosionParticleEffect: {fileID: 1763892771949098}
-  smokeParticleEffect: {fileID: 1588037414301588}
-  smokedGrenadeObject: {fileID: 1305697455421518}
-  flashParticleEffect: {fileID: 1432182352643336}
-  flashedGrenadeObject: {fileID: 1513088400006990}
-  items:
-  - {fileID: 1132874364551124}
-  - {fileID: 1554464163974958}
-  - {fileID: 1911095093714116}
 --- !u!114 &114723046502240450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2501,6 +2479,28 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114853274595876024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1540506632428078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e078b44b8275bef4f92e65a2eb6ab112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: 
+  thrower: 
+  explosionParticleEffect: {fileID: 1763892771949098}
+  smokeParticleEffect: {fileID: 1588037414301588}
+  smokedGrenadeObject: {fileID: 1305697455421518}
+  flashParticleEffect: {fileID: 1432182352643336}
+  flashedGrenadeObject: {fileID: 1513088400006990}
+  items:
+  - {fileID: 1132874364551124}
+  - {fileID: 1554464163974958}
+  - {fileID: 1911095093714116}
 --- !u!136 &136035294744611424
 CapsuleCollider:
   m_ObjectHideFlags: 1

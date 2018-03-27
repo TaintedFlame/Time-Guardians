@@ -89,4 +89,4 @@ MonoBehaviour:
   innocentAlive: 0
   traitorAlive: 0
   soloAlive: 0
-  pickUp: {fileID: 1522773180610478, guid: 4deae95d79af10c4da9b210d8d8eaf90, type: 2}
+  pickUp: {fileID: 1522773180610478, guid: 500d046f3896e514c9530226c2e50b12, type: 2}

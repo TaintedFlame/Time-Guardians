@@ -5,7 +5,7 @@ using System.Collections;
 public class PickUpInfo
 {
     public string itemName;
-    public string itemType;
+    public string itemSlotType;
     
     public GameObject obj;
 }

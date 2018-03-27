@@ -7,10 +7,10 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/_Scenes/GameLobby.unity
-    guid: cfc1dc85e89b2714a92d10dbbbf37bc4
+    guid: a1d9cf17b7d3a314aaec409cd2d99078
   - enabled: 1
     path: Assets/_Scenes/GameArena.unity
-    guid: b05d45347ec428340a284d939a223bf1
+    guid: 38b503b14c30427458edaf1a08087cc7
   - enabled: 0
     path: Assets/_Scenes/Lighthouse_mc.unity
     guid: e01221041739c3b46a233c59dea19c49

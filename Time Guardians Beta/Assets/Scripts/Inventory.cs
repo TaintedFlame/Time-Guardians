@@ -231,18 +231,18 @@ public class Inventory : NetworkBehaviour
         int slot = -1;
         for (int i = 0; i < slotOrder.Length; i++)
         {
-            if (slotOrder[i] == itemType)
+            if (slotOrder[i] == itemType && items[i].itemName == "empty")
             {
                 slot = i;
+
+                NewItem(slot, itemName);
+
+                PickUp.disable = pickUpId;
+                Player.player.CmdRequestPickupDestroy(pickUpId);
+
+                // End
+                i = slotOrder.Length;
             }
-        }
-
-        if (items[slot].itemName == "empty")
-        {
-            NewItem(slot, itemName);
-
-            PickUp.disable = pickUpId;
-            Player.player.CmdRequestPickupDestroy(pickUpId);
         }
     }
 

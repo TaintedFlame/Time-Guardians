@@ -33,58 +33,59 @@ public class PlayerSounds : NetworkBehaviour {
 
     public void PlaySound(string soundName, Vector3 pos, Vector2 volume, Vector2 pitch, float maxDistance, bool networked)
     {
+        // Play for others
         if (networked)
         {
             CmdPlaySound(soundName, pos, volume, pitch, maxDistance);
         }
-        else
+
+        // Play Sound
+
+        AudioSource audioSource = null;
+
+        for (int i = 0; i < soundInfos.Length; i++)
         {
-            AudioSource audioSource = null;
-
-            for (int i = 0; i < soundInfos.Length; i++)
+            if (soundInfos[i].soundName == soundName)
             {
-                if (soundInfos[i].soundName == soundName)
+                for (int a = 0; a < soundTypes.Length; a++)
                 {
-                    for (int a = 0; a < soundTypes.Length; a++)
+                    soundTypes[a].currentIndex++;
+                    if (soundTypes[a].currentIndex >= soundTypes[a].audioSources.Length)
                     {
-                        soundTypes[a].currentIndex++;
-                        if (soundTypes[a].currentIndex >= soundTypes[a].audioSources.Length)
-                        {
-                            soundTypes[a].currentIndex = 0;
-                        }
-
-                        audioSource = soundTypes[a].audioSources[soundTypes[a].currentIndex];
-                        audioSource.clip = soundInfos[i].audioClips[Random.Range(0, soundInfos[i].audioClips.Length)];
-
-                        // End
-                        a = soundTypes.Length;
+                        soundTypes[a].currentIndex = 0;
                     }
+
+                    audioSource = soundTypes[a].audioSources[soundTypes[a].currentIndex];
+                    audioSource.clip = soundInfos[i].audioClips[Random.Range(0, soundInfos[i].audioClips.Length)];
+
                     // End
-                    i = soundInfos.Length;
+                    a = soundTypes.Length;
                 }
+                // End
+                i = soundInfos.Length;
             }
+        }
 
-            // If found sound
-            if (audioSource != null)
+        // If found sound
+        if (audioSource != null)
+        {
+            //
+            if (pos == Vector3.zero && audioSource.transform.parent != audioParent.transform)
             {
-                //
-                if (pos == Vector3.zero && audioSource.transform.parent != audioParent.transform)
-                {
-                    audioSource.transform.parent = audioParent.transform;
-                    audioSource.transform.position = audioParent.transform.position;
-                }
-                if (pos != Vector3.zero)
-                {
-                    audioSource.transform.parent = null;
-                    audioSource.transform.position = pos;
-                }
-
-                // Set other sound values
-                audioSource.volume = Random.Range(volume.x, volume.y);
-                audioSource.pitch = Random.Range(pitch.x, pitch.y);
-                audioSource.maxDistance = maxDistance;
-                audioSource.Play();
+                audioSource.transform.parent = audioParent.transform;
+                audioSource.transform.position = audioParent.transform.position;
             }
+            if (pos != Vector3.zero)
+            {
+                audioSource.transform.parent = null;
+                audioSource.transform.position = pos;
+            }
+
+            // Set other sound values
+            audioSource.volume = Random.Range(volume.x, volume.y);
+            audioSource.pitch = Random.Range(pitch.x, pitch.y);
+            audioSource.maxDistance = maxDistance;
+            audioSource.Play();
         }
     }
 
@@ -97,7 +98,10 @@ public class PlayerSounds : NetworkBehaviour {
     [ClientRpc]
     void RpcPlaySound(string soundName, Vector3 pos, Vector2 volume, Vector2 pitch, float maxDistance)
     {
-        PlaySound(soundName, pos, volume, pitch, maxDistance, false);
+        if (!isLocalPlayer)
+        {
+            PlaySound(soundName, pos, volume, pitch, maxDistance, false);
+        }
     }
 
 }

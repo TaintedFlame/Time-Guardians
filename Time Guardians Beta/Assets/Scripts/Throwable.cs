@@ -98,9 +98,9 @@ public class Throwable : NetworkBehaviour
             Vector3 pos = transform.position;
 
             RaycastHit hit;
-            transform.LookAt(col.transform);
             transform.position += new Vector3(0, 0.25f, 0);
-            Ray ray = new Ray(transform.position + new Vector3(0, 0, 0), transform.forward);
+            transform.LookAt(col.transform);
+            Ray ray = new Ray(transform.position, transform.forward);
             bool result = Physics.Raycast(ray, out hit, 8);
 
             Rigidbody newRigid = null;
