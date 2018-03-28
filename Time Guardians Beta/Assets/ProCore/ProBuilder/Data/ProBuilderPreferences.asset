@@ -11,38 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 146836576, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
   m_Name: ProBuilderPreferences
   m_EditorClassIdentifier: 
-  m_Bool_keys:
-  - pb_SmoothingGroupEditor::m_ShowPreview
-  - pbDragSelectWholeElement
-  - pbDefaultOpenInDockableWindow
-  - pbIconGUI
-  - pbGrowSelectionUsingAngle
-  - pbGrowSelectionAngleIterative
-  - pbUVMaterialPreview
-  - pb_SmoothingGroupEditor::m_DrawNormals
-  - pbMaterialEditorFloating
-  - pbUVEditorFloating
-  m_Int_keys:
-  - pbDefaultEditLevel
-  - pbDefaultSelectionMode
-  - pbHandleAlignment
-  - pb_GIWorkflowMode
-  - pbDragSelectMode
-  m_Float_keys:
-  - pbEditorScroll.x
-  - pbEditorScroll.y
-  - pbGrowSelectionAngle
-  m_String_keys:
-  - pbCurrentMaterialPalette
+  m_Bool_keys: []
+  m_Int_keys: []
+  m_Float_keys: []
+  m_String_keys: []
   m_Color_keys: []
   m_Material_keys: []
-  m_Bool_values: 01000101010001000000
-  m_Int_values: 0000000002000000010000000100000000000000
-  m_Float_values:
-  - 0
-  - 0
-  - 60
-  m_String_values:
-  - Assets/ProCore/ProBuilder/Data/Material Palette.asset
+  m_Bool_values: 
+  m_Int_values: 
+  m_Float_values: []
+  m_String_values: []
   m_Color_values: []
   m_Material_values: []

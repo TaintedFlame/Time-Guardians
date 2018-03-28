@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/_Scenes/GameLobby.unity
+  isLoaded: 0
+  isActive: 0

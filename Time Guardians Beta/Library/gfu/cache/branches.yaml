@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -913181260, guid: 7d3a677691631814c819f6c04b639945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastUpdatedAtString: 2018-03-28T16:50:46.5031001+13:00
+  lastVerifiedAtString: 2018-03-28T16:50:46.5512321+13:00
+  initializedAtString: 2018-03-28T14:43:33.5258759+13:00
+  gitConfigBranch:
+    name: master
+    remote:
+      name: origin
+      url: https://github.com/TaintedFlame/Time-Guardians.git
+  gitConfigRemote:
+    name: origin
+    url: https://github.com/TaintedFlame/Time-Guardians.git
+  localBranches:
+  - name: master
+    tracking: origin/master
+    isActive: 1
+  remoteBranches:
+  - name: origin/HEAD
+    tracking: '[None]'
+    isActive: 0
+  - name: origin/master
+    tracking: '[None]'
+    isActive: 0
+  remotes:
+  - name: origin
+    url: https://github.com/TaintedFlame/Time-Guardians.git
+    login: 
+    user: 
+    host: 
+    function: 0
+    token: 
+  localConfigBranches:
+    keys:
+    - master
+    values:
+    - name: master
+      remote:
+        name: origin
+        url: https://github.com/TaintedFlame/Time-Guardians.git
+  remoteConfigBranches:
+    keys:
+    - origin
+    subKeys:
+    - Values:
+      - HEAD
+      - master
+    subKeyValues:
+    - Values:
+      - name: HEAD
+        remote:
+          name: origin
+          url: https://github.com/TaintedFlame/Time-Guardians.git
+      - name: master
+        remote:
+          name: origin
+          url: https://github.com/TaintedFlame/Time-Guardians.git
+  configRemotes:
+    keys:
+    - origin
+    values:
+    - name: origin
+      url: https://github.com/TaintedFlame/Time-Guardians.git

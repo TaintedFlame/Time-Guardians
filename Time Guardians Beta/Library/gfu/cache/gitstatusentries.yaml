@@ -1,0 +1,555 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1038538317, guid: 7d3a677691631814c819f6c04b639945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastUpdatedAtString: 2018-03-28T16:50:46.2804927+13:00
+  lastVerifiedAtString: 2018-03-28T16:50:47.2225667+13:00
+  initializedAtString: 2018-03-28T14:43:36.6645284+13:00
+  entries:
+  - path: .gitignore
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\.gitignore
+    projectPath: ..\.gitignore
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Time Guardians Beta\Assets\ProCore\ProBuilder\Data\ProBuilderPreferences.asset
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\ProCore\ProBuilder\Data\ProBuilderPreferences.asset
+    projectPath: Assets\ProCore\ProBuilder\Data\ProBuilderPreferences.asset
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Time Guardians Beta\Assets\ProCore\ProBuilder\Data\ProBuilderPreferences.asset.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\ProCore\ProBuilder\Data\ProBuilderPreferences.asset.meta
+    projectPath: Assets\ProCore\ProBuilder\Data\ProBuilderPreferences.asset.meta
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Time Guardians Beta\Assets\Resources\NetworkGameInfo.prefab
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Resources\NetworkGameInfo.prefab
+    projectPath: Assets\Resources\NetworkGameInfo.prefab
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Resources\NetworkGameInfo.prefab.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Resources\NetworkGameInfo.prefab.meta
+    projectPath: Assets\Resources\NetworkGameInfo.prefab.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Resources\PickUps.prefab
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Resources\PickUps.prefab
+    projectPath: Assets\Resources\PickUps.prefab
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Resources\PickUps.prefab.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Resources\PickUps.prefab.meta
+    projectPath: Assets\Resources\PickUps.prefab.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Resources\Player.prefab
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Resources\Player.prefab
+    projectPath: Assets\Resources\Player.prefab
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Resources\Player.prefab.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Resources\Player.prefab.meta
+    projectPath: Assets\Resources\Player.prefab.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Resources\Throwables.prefab
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Resources\Throwables.prefab
+    projectPath: Assets\Resources\Throwables.prefab
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Resources\Throwables.prefab.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Resources\Throwables.prefab.meta
+    projectPath: Assets\Resources\Throwables.prefab.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\Classes\PickUpInfo.cs
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\Classes\PickUpInfo.cs
+    projectPath: Assets\Scripts\Classes\PickUpInfo.cs
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\Classes\PickUpInfo.cs.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\Classes\PickUpInfo.cs.meta
+    projectPath: Assets\Scripts\Classes\PickUpInfo.cs.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\Classes\Shop Items\AK47.asset
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\Classes\Shop Items\AK47.asset
+    projectPath: Assets\Scripts\Classes\Shop Items\AK47.asset
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\Classes\Shop Items\AK47.asset.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\Classes\Shop Items\AK47.asset.meta
+    projectPath: Assets\Scripts\Classes\Shop Items\AK47.asset.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\Inventory.cs
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\Inventory.cs
+    projectPath: Assets\Scripts\Inventory.cs
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\Inventory.cs.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\Inventory.cs.meta
+    projectPath: Assets\Scripts\Inventory.cs.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\PickUp.cs
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\PickUp.cs
+    projectPath: Assets\Scripts\PickUp.cs
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\PickUp.cs.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\PickUp.cs.meta
+    projectPath: Assets\Scripts\PickUp.cs.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\Player\PlayerShooting.cs
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\Player\PlayerShooting.cs
+    projectPath: Assets\Scripts\Player\PlayerShooting.cs
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\Player\PlayerShooting.cs.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\Player\PlayerShooting.cs.meta
+    projectPath: Assets\Scripts\Player\PlayerShooting.cs.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\Player\PlayerSounds.cs
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\Player\PlayerSounds.cs
+    projectPath: Assets\Scripts\Player\PlayerSounds.cs
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\Player\PlayerSounds.cs.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\Player\PlayerSounds.cs.meta
+    projectPath: Assets\Scripts\Player\PlayerSounds.cs.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\Throwable.cs
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\Throwable.cs
+    projectPath: Assets\Scripts\Throwable.cs
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Scripts\Throwable.cs.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Scripts\Throwable.cs.meta
+    projectPath: Assets\Scripts\Throwable.cs.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\_Scenes\Construct.unity
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\_Scenes\Construct.unity
+    projectPath: Assets\_Scenes\Construct.unity
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\_Scenes\Construct.unity.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\_Scenes\Construct.unity.meta
+    projectPath: Assets\_Scenes\Construct.unity.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\_Scenes\GameArena.unity
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\_Scenes\GameArena.unity
+    projectPath: Assets\_Scenes\GameArena.unity
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\_Scenes\GameArena.unity.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\_Scenes\GameArena.unity.meta
+    projectPath: Assets\_Scenes\GameArena.unity.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\_Scenes\GameLobby.unity
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\_Scenes\GameLobby.unity
+    projectPath: Assets\_Scenes\GameLobby.unity
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\_Scenes\GameLobby.unity.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\_Scenes\GameLobby.unity.meta
+    projectPath: Assets\_Scenes\GameLobby.unity.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\_Scenes\Test.unity
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\_Scenes\Test.unity
+    projectPath: Assets\_Scenes\Test.unity
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\_Scenes\Test.unity.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\_Scenes\Test.unity.meta
+    projectPath: Assets\_Scenes\Test.unity.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Time Guardians Beta\Assets\Animations\Weapons + Items\C4.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Animations\Weapons + Items\C4.meta
+    projectPath: Assets\Animations\Weapons + Items\C4.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Materials\Ammo Box.mat.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Materials\Ammo Box.mat.meta
+    projectPath: Assets\Materials\Ammo Box.mat.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Materials\Station.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Materials\Station.meta
+    projectPath: Assets\Materials\Station.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Materials\Station\Matt.mat.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Materials\Station\Matt.mat.meta
+    projectPath: Assets\Materials\Station\Matt.mat.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Materials\Station\Rail 1.mat.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Materials\Station\Rail 1.mat.meta
+    projectPath: Assets\Materials\Station\Rail 1.mat.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Materials\Station\Textured_Metal.mat.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Materials\Station\Textured_Metal.mat.meta
+    projectPath: Assets\Materials\Station\Textured_Metal.mat.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Aluminum_NRM.jpg.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Aluminum_NRM.jpg.meta
+    projectPath: Assets\Models\Maps\Horizon Ring\WalkwayRail\Aluminum_NRM.jpg.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Aluminum_SPEC.jpg.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Aluminum_SPEC.jpg.meta
+    projectPath: Assets\Models\Maps\Horizon Ring\WalkwayRail\Aluminum_SPEC.jpg.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Metal_Steel_Textured_White_DISP.jpg.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Metal_Steel_Textured_White_DISP.jpg.meta
+    projectPath: Assets\Models\Maps\Horizon Ring\WalkwayRail\Metal_Steel_Textured_White_DISP.jpg.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Metal_Steel_Textured_White_NRM.jpg.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Metal_Steel_Textured_White_NRM.jpg.meta
+    projectPath: Assets\Models\Maps\Horizon Ring\WalkwayRail\Metal_Steel_Textured_White_NRM.jpg.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Metal_Steel_Textured_White_OCC.jpg.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Metal_Steel_Textured_White_OCC.jpg.meta
+    projectPath: Assets\Models\Maps\Horizon Ring\WalkwayRail\Metal_Steel_Textured_White_OCC.jpg.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Metal_Steel_Textured_White_SPEC.jpg.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Metal_Steel_Textured_White_SPEC.jpg.meta
+    projectPath: Assets\Models\Maps\Horizon Ring\WalkwayRail\Metal_Steel_Textured_White_SPEC.jpg.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Thumbs.db.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Models\Maps\Horizon Ring\WalkwayRail\Thumbs.db.meta
+    projectPath: Assets\Models\Maps\Horizon Ring\WalkwayRail\Thumbs.db.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Models\ammoBox.fbx.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Models\ammoBox.fbx.meta
+    projectPath: Assets\Models\ammoBox.fbx.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Ammo Box.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Ammo Box.meta
+    projectPath: Assets\Textures\Ammo Box.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Ammo Box\Ammo Box_COLOR.png.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Ammo Box\Ammo Box_COLOR.png.meta
+    projectPath: Assets\Textures\Ammo Box\Ammo Box_COLOR.png.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Ammo Box\Ammo Box_DISP.png.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Ammo Box\Ammo Box_DISP.png.meta
+    projectPath: Assets\Textures\Ammo Box\Ammo Box_DISP.png.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Ammo Box\Ammo Box_NRM.png.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Ammo Box\Ammo Box_NRM.png.meta
+    projectPath: Assets\Textures\Ammo Box\Ammo Box_NRM.png.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Ammo Box\Ammo Box_OCC.png.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Ammo Box\Ammo Box_OCC.png.meta
+    projectPath: Assets\Textures\Ammo Box\Ammo Box_OCC.png.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Ammo Box\Ammo Box_SPEC.png.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Ammo Box\Ammo Box_SPEC.png.meta
+    projectPath: Assets\Textures\Ammo Box\Ammo Box_SPEC.png.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Ammo Box\Thumbs.db.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Ammo Box\Thumbs.db.meta
+    projectPath: Assets\Textures\Ammo Box\Thumbs.db.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Concrete_007.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Concrete_007.meta
+    projectPath: Assets\Textures\Concrete_007.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Concrete_007\Concrete_007_COLOR.png.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Concrete_007\Concrete_007_COLOR.png.meta
+    projectPath: Assets\Textures\Concrete_007\Concrete_007_COLOR.png.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Concrete_007\Concrete_007_DISP.png.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Concrete_007\Concrete_007_DISP.png.meta
+    projectPath: Assets\Textures\Concrete_007\Concrete_007_DISP.png.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Concrete_007\Concrete_007_NRM.png.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Concrete_007\Concrete_007_NRM.png.meta
+    projectPath: Assets\Textures\Concrete_007\Concrete_007_NRM.png.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Concrete_007\Concrete_007_OCC.png.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Concrete_007\Concrete_007_OCC.png.meta
+    projectPath: Assets\Textures\Concrete_007\Concrete_007_OCC.png.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Concrete_007\Concrete_007_RENDER.jpg.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Concrete_007\Concrete_007_RENDER.jpg.meta
+    projectPath: Assets\Textures\Concrete_007\Concrete_007_RENDER.jpg.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Assets\Textures\Concrete_007\Concrete_007_SPEC.png.meta
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Assets\Textures\Concrete_007\Concrete_007_SPEC.png.meta
+    projectPath: Assets\Textures\Concrete_007\Concrete_007_SPEC.png.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\BuildPlayer.prefs
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\BuildPlayer.prefs
+    projectPath: Library\BuildPlayer.prefs
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\assetDatabase3
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\assetDatabase3
+    projectPath: Library\assetDatabase3
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\metadata\00\0000000000000000b000000000000000
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\metadata\00\0000000000000000b000000000000000
+    projectPath: Library\metadata\00\0000000000000000b000000000000000
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\metadata\00\0000000000000000b000000000000000.info
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\metadata\00\0000000000000000b000000000000000.info
+    projectPath: Library\metadata\00\0000000000000000b000000000000000.info
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\metadata\03\03c222c6b24acb44a8a05a2c9d345b99
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\metadata\03\03c222c6b24acb44a8a05a2c9d345b99
+    projectPath: Library\metadata\03\03c222c6b24acb44a8a05a2c9d345b99
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\metadata\03\03c222c6b24acb44a8a05a2c9d345b99.info
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\metadata\03\03c222c6b24acb44a8a05a2c9d345b99.info
+    projectPath: Library\metadata\03\03c222c6b24acb44a8a05a2c9d345b99.info
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\metadata\06\06467b8e1ca080c4686a13a2f81b22a0
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\metadata\06\06467b8e1ca080c4686a13a2f81b22a0
+    projectPath: Library\metadata\06\06467b8e1ca080c4686a13a2f81b22a0
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\metadata\06\06467b8e1ca080c4686a13a2f81b22a0.info
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\metadata\06\06467b8e1ca080c4686a13a2f81b22a0.info
+    projectPath: Library\metadata\06\06467b8e1ca080c4686a13a2f81b22a0.info
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\metadata\19\197d3fafdade11449927e6a85acfc044
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\metadata\19\197d3fafdade11449927e6a85acfc044
+    projectPath: Library\metadata\19\197d3fafdade11449927e6a85acfc044
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\metadata\19\197d3fafdade11449927e6a85acfc044.info
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\metadata\19\197d3fafdade11449927e6a85acfc044.info
+    projectPath: Library\metadata\19\197d3fafdade11449927e6a85acfc044.info
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\metadata\2a\2aa674991d7e6b94aa4b6d57f40e1fb2
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\metadata\2a\2aa674991d7e6b94aa4b6d57f40e1fb2
+    projectPath: Library\metadata\2a\2aa674991d7e6b94aa4b6d57f40e1fb2
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\metadata\2a\2aa674991d7e6b94aa4b6d57f40e1fb2.info
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\metadata\2a\2aa674991d7e6b94aa4b6d57f40e1fb2.info
+    projectPath: Library\metadata\2a\2aa674991d7e6b94aa4b6d57f40e1fb2.info
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\metadata\4b\4b264344906bf184aa3a653508375602
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\metadata\4b\4b264344906bf184aa3a653508375602
+    projectPath: Library\metadata\4b\4b264344906bf184aa3a653508375602
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\metadata\4b\4b264344906bf184aa3a653508375602.info
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\metadata\4b\4b264344906bf184aa3a653508375602.info
+    projectPath: Library\metadata\4b\4b264344906bf184aa3a653508375602.info
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Library\shadercompiler-UnityShaderCompiler.exe0.log
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Library\shadercompiler-UnityShaderCompiler.exe0.log
+    projectPath: Library\shadercompiler-UnityShaderCompiler.exe0.log
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Time Guardians Beta\Temp\UnityLockfile
+    fullPath: C:\Users\Sam\Documents\Programming\Unity\Time Guardians Repository\Time-Guardians\Time
+      Guardians Beta\Temp\UnityLockfile
+    projectPath: Temp\UnityLockfile
+    originalPath: 
+    status: 1
+    staged: 0
