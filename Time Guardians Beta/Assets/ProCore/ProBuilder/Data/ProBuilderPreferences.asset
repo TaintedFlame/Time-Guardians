@@ -20,6 +20,8 @@ MonoBehaviour:
   - pbGrowSelectionAngleIterative
   - pbUVMaterialPreview
   - pb_SmoothingGroupEditor::m_DrawNormals
+  - pbMaterialEditorFloating
+  - pbUVEditorFloating
   m_Int_keys:
   - pbDefaultEditLevel
   - pbDefaultSelectionMode
@@ -34,8 +36,8 @@ MonoBehaviour:
   - pbCurrentMaterialPalette
   m_Color_keys: []
   m_Material_keys: []
-  m_Bool_values: 0100010101000100
-  m_Int_values: 0100000002000000010000000100000000000000
+  m_Bool_values: 01000101010001000000
+  m_Int_values: 0000000002000000010000000100000000000000
   m_Float_values:
   - 0
   - 0
